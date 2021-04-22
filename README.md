@@ -27,15 +27,15 @@
     venv\Scripts\activate
     ```
 
-5. Open project repository:
-    ```sh
-     cd server/
-    ```
-   
-6. Install requirements:
+5. Install requirements:
 
     ```sh
      pip install -r requirements.txt
+    ```
+   
+6. Open project repository:
+    ```sh
+     cd server/
     ```
 
 7. Run Django makemigrations:
