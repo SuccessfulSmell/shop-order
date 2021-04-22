@@ -4,13 +4,17 @@
     ```sh
     git clone https://github.com/SuccessfulSmell/shop-order.git
     ```
-
-2. Set virtual environment:
+2. Open project repository:
+    ```sh
+     cd shop-order/
+    ```
+   
+3. Set virtual environment:
     ```sh
     python3 -m venv venv
     ```
 
-3. Activate virtual environment:
+4. Activate virtual environment:
     
     MacOS/Linux
     
@@ -23,31 +27,30 @@
     venv\Scripts\activate
     ```
 
-4. Open project repository:
-
-    ```sh
-     cd server/
-    ```
-   
 5. Install requirements:
 
     ```sh
      pip install -r requirements.txt
     ```
+   
+6. Open project repository:
+    ```sh
+     cd server/
+    ```
 
-6. Run Django makemigrations:
+7. Run Django makemigrations:
 
     ```sh
     python manage.py runserver makemigrations 
     ```
    
-7. Run Django migrations:
+8. Run Django migrations:
 
     ```sh
     python manage.py runserver migrate
     ```
 
-8. Run Django app:
+9. Run Django app:
 
     ```sh
     python manage.py runserver 0.0.0.0:8000
