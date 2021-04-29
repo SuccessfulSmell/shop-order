@@ -71,3 +71,37 @@
     ```sh
     npm start
     ```
+   
+# Docker run
+
+Run services in the background:
+```sh
+docker-compose up -d
+```
+
+
+Run services in the foreground:
+```sh
+docker-compose up --build
+```
+
+
+Inspect volume:
+
+```sh
+docker volume ls
+```
+and
+```sh
+docker volume inspect <volume name>
+```
+
+View networks:
+```sh
+docker network ls
+```
+
+Bring services down:
+```sh
+docker-compose down
+```
