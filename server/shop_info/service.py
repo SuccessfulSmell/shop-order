@@ -1,3 +1,4 @@
+""" Service for managing contacts and api info. """
 import os
 import json
 
@@ -8,7 +9,11 @@ ERROR_MSG = {'status': 'error', 'code': 500,
              'message': 'File for API root does not exists or incorrect'}
 
 
-def get_api_root():
+def get_api_root() -> dict:
+    """ Get API root data from .json config file.
+
+    :return: response for api root.
+    """
     if not os.path.exists(FILENAME):
         return ERROR_MSG
     else:
