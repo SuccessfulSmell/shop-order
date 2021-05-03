@@ -3,7 +3,7 @@ import json
 import requests
 import xmltodict
 
-from data_models import Product
+from .data_models import Product
 from nested_lookup import nested_lookup
 
 

@@ -4,5 +4,10 @@
     "Вход": "http://127.0.0.1:8000/api/auth/sign_in/",
     "Регистрация": "http://127.0.0.1:8000/api/auth/sign_up/",
     "Получение данных пользователя": "http://127.0.0.1:8000/api/auth/current_user/"
+  },
+  "Получение товаров": {
+    "Получить список товаров": "http://127.0.0.1:8000/api/products/get_products/",
+    "Получить список категорий": "http://127.0.0.1:8000/api/products/get_categories/",
+    "Обновление товаров": "http://127.0.0.1:8000/api/products/update_products/"
   }
 }
