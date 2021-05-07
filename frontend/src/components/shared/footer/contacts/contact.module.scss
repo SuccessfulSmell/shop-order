@@ -1,0 +1,16 @@
+@import "../../../shared/vars";
+@import "../../../shared/main_mixins";
+
+.contact_info {
+  font-size: 0.8em;
+  color: $muted_text_bg_blue;
+  text-align: right;
+  font-weight: lighter;
+}
+
+@media (max-width: 1199px) {
+  .contact_info {
+    padding-top: 15px;
+    text-align: left;
+  }
+}

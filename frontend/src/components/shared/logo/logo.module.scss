@@ -1,0 +1,18 @@
+@import "../../shared/vars";
+@import "../../shared/main_mixins";
+
+.logo{
+  display: flex;
+}
+.logo_link{
+  text-decoration: none;
+}
+
+.logo__img{
+  @include clear_link(black);
+}
+
+.logo__text{
+  @include clear_link(white);
+  color: white;
+}

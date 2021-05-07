@@ -1,0 +1,89 @@
+@import "../../../../../shared/vars";
+@import "../../../../../shared/main_mixins";
+
+.product{
+  width: 100%;
+  padding: 20px;
+  margin: 40px 0;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+
+}
+
+.remove{
+  background: url("buttons/clean.png") 50% 50%/cover no-repeat;
+  width: 32px;
+  height: 32px;
+  opacity: 50%;
+}
+
+.product_info{
+  font-weight: bold;
+  font-size: 20px;
+  max-width: 40%;
+}
+
+.img{
+  margin: 0 15px;
+  width: 80%;
+  max-width: 150px;
+  min-width: 50px;
+  max-height: 100%;
+}
+
+.title{
+
+}
+
+.desc{
+  font-weight: 300;
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 10px 0;
+}
+
+.price_info{
+  display: flex;
+  font-size: 18px;
+  width: auto;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 200px;
+}
+
+.price_text{
+  padding-right: 5px;
+  justify-self: flex-end;
+}
+
+.price{
+  color: $main_color;
+  text-shadow: 0 5px 15px rgba(78, 93, 228, 0.7);
+  font-size: 1.1em;
+  font-weight: bold;
+
+}
+
+@media (max-width: 1199px) {
+  .product_info{
+    max-width: 100%;
+  }
+  .price_info{
+    justify-content: flex-start;
+    padding: 20px 0;
+  }
+
+}
+
+@media (max-width: 320px) {
+  .price_info{
+    font-size: 15px;
+  }
+  .product_info{
+    font-size: 17px;
+  }
+
+}
