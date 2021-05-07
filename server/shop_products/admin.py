@@ -10,8 +10,8 @@ class MainCategoryAdmin(admin.ModelAdmin):
 
 
 class SubCategoryAdmin(admin.ModelAdmin):
-    search_fields = ['sub_category', 'discount']
-    list_display = ('sub_category', 'discount')
+    search_fields = ['id', 'sub_category', 'discount']
+    list_display = ('id', 'sub_category', 'discount')
     list_per_page = PER_PAGE
 
 
