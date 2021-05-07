@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './filter.module.scss'
+import Category from "./category/category";
 
 function Filter(props) {
     return (
-        <div>
-
+        <div className={styles.filter}>
+            <Category/>
+            <Category/>
+            <Category/>
+            <Category/>
         </div>
     );
 }

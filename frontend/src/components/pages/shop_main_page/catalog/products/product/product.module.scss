@@ -1,0 +1,80 @@
+@import "../../../../../shared/vars";
+@import "../../../../../shared/main_mixins";
+
+.product{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 21%;
+  min-width: 150px;
+  max-width: 400px;
+  margin: 30px 2% 30px 0;
+
+  font-size: 18px;
+}
+
+.img{
+  width: 85%;
+
+}
+
+.title{
+  position: relative;
+}
+
+.price_cart{
+  justify-self: flex-end;
+
+
+  margin-top: 50px;
+  display: flex;
+}
+
+.price{
+  width: 50%;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.cart{
+ float: right;
+}
+
+.img_cart{
+  width: 32px;
+  height: 32px;
+  float: right;
+}
+
+.title_text{
+  position: relative;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.title_text:after{
+  @include line_after($main_color);
+  height: 2px;
+  width: 60%;
+}
+
+.desc_text{
+  font-size: 0.8em;
+  font-weight: normal;
+  color: rgba(26, 34, 102, 0.8);
+
+  max-height: 150px;
+  overflow: hidden;
+}
+
+
+
+.sep_line{
+  width: 60%;
+  min-width: 100px;
+  height: 2px;
+  background-color: $main_color;
+}

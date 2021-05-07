@@ -18,3 +18,19 @@
   }
 
 }
+
+.catalog{
+  display: flex;
+
+}
+
+.catalog_block{
+  margin-bottom: 100px;
+}
+
+@media (max-width: 767px) {
+  .catalog{
+    display: block;
+
+  }
+}

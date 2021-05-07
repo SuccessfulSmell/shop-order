@@ -1,0 +1,34 @@
+@import "../../../../shared/vars";
+@import "../../../../shared/main_mixins";
+
+.products{
+  width: 70%;
+}
+
+.filters{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products_block{
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pagination{
+
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+  .products{
+    width: 100%;
+  }
+
+}

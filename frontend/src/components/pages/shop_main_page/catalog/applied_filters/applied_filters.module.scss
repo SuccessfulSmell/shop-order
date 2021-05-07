@@ -1,0 +1,26 @@
+@import "../../../../shared/vars";
+@import "../../../../shared/main_mixins";
+
+
+.applied{
+  width: 70%;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.name{
+  position: relative;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+
+}
+
+.name:after{
+  @include line_after($main_color);
+  height: 2px;
+
+}

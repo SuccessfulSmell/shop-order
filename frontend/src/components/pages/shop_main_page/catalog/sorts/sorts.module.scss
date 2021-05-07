@@ -1,0 +1,32 @@
+@import "../../../../shared/vars";
+@import "../../../../shared/main_mixins";
+
+.sorts{
+  width: 30%;
+  min-width: 150px;
+  max-width: 300px;
+}
+
+select{
+  width: 100%;
+  min-width: 150px;
+  max-width: 300px;
+
+  padding: 5px 15px;
+  background: #FFFFFF;
+  border: 2px solid rgba(78, 93, 228, 0.7);
+  box-sizing: border-box;
+  border-radius: 50px;
+  color: rgba(78, 93, 228, 0.7);
+}
+
+option{
+  border: none;
+}
+
+@media (max-width: 523px) {
+  .sorts{
+    width: 100%;
+  }
+
+}

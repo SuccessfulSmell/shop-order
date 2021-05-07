@@ -1,0 +1,36 @@
+@import "../../../../../shared/vars";
+@import "../../../../../shared/main_mixins";
+
+.applied_block{
+  background: $main_color;
+  box-shadow: 3px 3px 15px rgba(78, 93, 228, 0.6);
+  border-radius: 14px;
+  margin: 0 0 10px 10px;
+  padding: 3px;
+
+  @include center_block();
+
+}
+
+.name{
+  @include center_block();
+  position: relative;
+  color: white;
+  max-height: 40px;
+  min-width: 80px;
+  font-size: 0.8em;
+  text-shadow: 0px 0px 15px #FFFFFF;
+
+  padding: 5px 32px 5px 5px;
+
+}
+
+.name:after{
+  content: '';
+  position: absolute;
+  right: 0;
+  opacity: 50%;
+  background: url("clean.png") 50% 50%/cover no-repeat;
+  width: 22px;
+  height: 22px;
+}
