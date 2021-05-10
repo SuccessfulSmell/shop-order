@@ -8,6 +8,7 @@ import {rootReducer} from "./redux/rootReducer";
 import {Provider} from "react-redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
+
 import {BrowserRouter} from "react-router-dom";
 
 
