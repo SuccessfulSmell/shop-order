@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-8on-2g!45hyzpj6%c#46=w+iu-415(@@+jrxu2p%van38b^b@=
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 1000240
 
 # Application definition
 
