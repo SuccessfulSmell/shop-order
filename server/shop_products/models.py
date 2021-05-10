@@ -2,7 +2,7 @@ from django.db import models
 
 
 class MainCategory(models.Model):
-    main_category = models.CharField(verbose_name='Главная категория', max_length=50, default='', blank=True, null=True)
+    main_category = models.CharField(verbose_name='Главная категория', max_length=200, default='', blank=True, null=True)
 
     def __str__(self):
         return self.main_category
@@ -15,7 +15,7 @@ class MainCategory(models.Model):
 
 class SubCategory(models.Model):
     discount = models.IntegerField(verbose_name='Скидка', default=0, blank=True, null=True)
-    sub_category = models.CharField(verbose_name='Подкатегория', max_length=50, default='', blank=True, null=True)
+    sub_category = models.CharField(verbose_name='Подкатегория', max_length=200, default='', blank=True, null=True)
 
     def __str__(self):
         return self.sub_category

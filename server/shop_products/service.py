@@ -62,12 +62,23 @@ class BaseService:
 class ToolsByService(BaseService, ToolsClient):
     provider = r'tools.by'
 
-    def update_data(self):
+    def __update_categories_tree(self) -> None:
+        """ Update tools.by categories. """
+        categories_tree = self.get_categories_tree()
+        for main_category in categories_tree:
+            main_category_key = list(main_category.keys())[0]
+            sub_category_values = list(main_category.values())[0]
+            category_obj, created = self.update_main_categories(main_category_key)
+            if category_obj:
+                self.update_categories(category_obj, sub_category_values)
+
+    def update_data(self) -> dict:
         """ Get products from tools.by and DataBase updating.
 
         :return: updating status.
         """
         try:
+            self.__update_categories_tree()
             products = self.get_products()
             for product in products:
                 category_obj, created = self.update_sub_categories(product.category)
@@ -83,7 +94,8 @@ class ToolsByService(BaseService, ToolsClient):
 class EtpromByService(BaseService, EtpromClient):
     provider = r'etprom.by'
 
-    def __update_categories_tree(self):
+    def __update_categories_tree(self) -> None:
+        """ Update Etprom categories. """
         categories_tree = self.get_categories_tree()
         for main_category in categories_tree:
             main_category_key = list(main_category.keys())[0]
@@ -92,7 +104,7 @@ class EtpromByService(BaseService, EtpromClient):
             if category_obj:
                 self.update_categories(category_obj, sub_category_values)
 
-    def update_data(self):
+    def update_data(self) -> dict:
         """ Get products from tools.by and DataBase updating.
 
         :return: updating status.

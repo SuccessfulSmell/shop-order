@@ -10,9 +10,20 @@ from nested_lookup import nested_lookup
 
 class BaseClient:
     """ Base client instance. """
+    base_url = ''
+    decode = False
 
     def __init__(self):
         self.session = requests.Session()
+
+    @staticmethod
+    def get_categories(response: dict) -> list:
+        """ Get list of all categories.
+
+        :param response:  response from etprom.by
+        :return:          list of categories.
+        """
+        return nested_lookup('category', response)
 
     def get_data(self, url: str, params: dict, format: str = 'json'):
         """ GET method for simple API.
@@ -30,11 +41,40 @@ class BaseClient:
         else:
             return response.text
 
+    def get_categories_tree(self) -> list:
+        """ Get tree of categories.
+
+        :return: tree of categories.
+        """
+        response = self.get_data(url=self.base_url, params={}, format='xml')
+        categories = self.get_categories(response)
+
+        categories_list = []
+        for category in categories[0]:
+            if '@parentId' not in category:
+                child_categories = []
+                for child_category in categories[0]:
+                    if category.get('@id') == child_category.get('@parentId', ''):
+                        if self.decode:
+                            text = child_category.get('#text', ''). \
+                                encode('iso-8859-1').decode('cp1251')
+                        else:
+                            text = child_category.get('#text', '')
+                        child_categories.append(text)
+                if self.decode:
+                    category_text = category.get('#text', '').encode('iso-8859-1').decode('cp1251')
+                else:
+                    category_text = category.get('#text', '')
+                data = {category_text: child_categories}
+                categories_list.append(data)
+        return categories_list
+
 
 class ToolsClient(BaseClient):
     """ Tools by parser. """
 
     base_url = r'https://www.tools.by/tools_yml_kat.php?unp=690387122'
+    decode = False
 
     def __get_offers(self) -> list:
         """ Get list of offers from tools.by
@@ -66,15 +106,7 @@ class EtpromClient(BaseClient):
     """ Etprom client. """
 
     base_url = r'https://etprom.by/upload/acrit.exportpro/f245f58d-26a1-11e4-9f8d-002590371a77.xml'
-
-    @staticmethod
-    def get_categories(response: dict) -> list:
-        """ Get list of all categories.
-
-        :param response:  response from etprom.by
-        :return:          list of categories.
-        """
-        return nested_lookup('category', response)
+    decode = True
 
     @staticmethod
     def __get_product_category(categories: dict, category_id: int) -> str:
@@ -98,13 +130,12 @@ class EtpromClient(BaseClient):
         """
         category_id = product.get('categoryId', '')
         category_name = self.__get_product_category(categories, category_id)
-
         return {
             '@id': product.get('@id', ''),
             '@available': product.get('@available', ''),
             'url': product.get('url', ''),
-            'price': product.get('url', ''),
-            'currency': product.get('currencyId', ''),
+            'price': product.get('price', ''),
+            'currency': 'BYN',
             'categoryName': category_name,
             'picture': product.get('picture', ''),
             'name': product.get('name', '').encode('iso-8859-1').decode('cp1251'),
@@ -132,24 +163,3 @@ class EtpromClient(BaseClient):
                 product = Product.parse_raw(json.dumps(product))
                 product_data.append(product)
         return product_data
-
-    def get_categories_tree(self) -> list:
-        """ Get tree of categories.
-
-        :return: tree of categories.
-        """
-        response = self.get_data(url=self.base_url, params={}, format='xml')
-        categories = self.get_categories(response)
-
-        categories_list = []
-        for category in categories[0]:
-            if '@parentId' not in category:
-                child_categories = []
-                for child_category in categories[0]:
-                    if category.get('@id') == child_category.get('@parentId', ''):
-                        text = child_category.get('#text', '').encode('iso-8859-1').decode('cp1251')
-                        child_categories.append(text)
-                category_text = category.get('#text', '').encode('iso-8859-1').decode('cp1251')
-                data = {category_text: child_categories}
-                categories_list.append(data)
-        return categories_list
