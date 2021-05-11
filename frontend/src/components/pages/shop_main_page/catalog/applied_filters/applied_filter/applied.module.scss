@@ -16,21 +16,16 @@
   @include center_block();
   position: relative;
   color: white;
-  max-height: 40px;
   min-width: 80px;
   font-size: 0.8em;
   text-shadow: 0px 0px 15px #FFFFFF;
 
-  padding: 5px 32px 5px 5px;
+  padding: 5px 5px 5px 5px;
 
-}
-
-.name:after{
-  content: '';
-  position: absolute;
-  right: 0;
-  opacity: 50%;
-  background: url("clean.png") 50% 50%/cover no-repeat;
-  width: 22px;
-  height: 22px;
+  img{
+    width: 22px;
+    height: 22px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
 }

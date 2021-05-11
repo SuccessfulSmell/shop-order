@@ -12,6 +12,11 @@ $icon_size: 18px;
   display: flex;
   align-items: center;
   position: relative;
+
+  img{
+  width: $icon_size + 5px;
+  height: $icon_size + 5px;
+  }
 }
 
 .icon{
@@ -28,14 +33,13 @@ $icon_size: 18px;
 
 .icon_clean{
   position: absolute;
-  right: 5px;
   background: url("buttons/clear/clean.png") 50% 50%/cover no-repeat;
-  visibility: hidden;
 }
 
 .search_field{
   border: none;
-  width: 80%;
+  width: 90%;
+  //margin: 0 10px;
   color: rgba(0, 0, 0, 0.6);
   transition: color $animation_duration;
 }

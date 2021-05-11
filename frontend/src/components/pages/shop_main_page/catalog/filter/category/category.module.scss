@@ -22,7 +22,7 @@
 
 @media (max-width: 767px) {
   .category{
-    max-width: 33%;
+    overflow-x:hidden ;
     min-width: 150px;
   }
 }

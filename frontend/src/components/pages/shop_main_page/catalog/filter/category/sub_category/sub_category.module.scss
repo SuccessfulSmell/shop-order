@@ -5,10 +5,12 @@
 .category_list{
   padding-top: 10px;
   padding-left: 25px;
+  overflow-x: hidden;
   div{
     padding: 10px 0 0 25px;
     font-weight: normal;
     color: rgba(78, 93, 228, 0.8);
+    min-width: 30px;
   }
 }
 .list_title{
@@ -16,9 +18,15 @@
   padding-left: 17px;
   font-size: 1em;
   font-weight: normal;
+
+
 }
 
-.list_title::-webkit-details-marker {
+.category_btn{
+    cursor: pointer;
+  }
+
+.list_title::marker {
   display: none;
 }
 
@@ -40,6 +48,7 @@ details > summary {
 
 details[open] summary ~ * {
   animation: sweep $animation_duration + 0.2s ease-in-out;
+
 }
 
 details[open] {

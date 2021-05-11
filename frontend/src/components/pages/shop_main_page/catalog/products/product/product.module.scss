@@ -7,17 +7,16 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: 21%;
+  width: 20%;
   min-width: 150px;
   max-width: 400px;
-  margin: 30px 2% 30px 0;
+  margin: 30px 5% 30px 0;
 
   font-size: 18px;
 }
 
 .img{
   width: 85%;
-
 }
 
 .title{
@@ -52,9 +51,12 @@
 
 .title_text{
   position: relative;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
   margin-bottom: 10px;
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title_text:after{
@@ -79,4 +81,13 @@
   min-width: 100px;
   height: 2px;
   background-color: $main_color;
+}
+
+
+@media (max-width: 357px) {
+  .product{
+    width: 100%;
+    margin-right: 0;
+  }
+
 }

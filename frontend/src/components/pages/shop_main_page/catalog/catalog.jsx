@@ -3,8 +3,6 @@ import styles from './catalog.module.scss'
 import Products from "./products/products";
 import Search from "../../../shared/search/search";
 import Filter from "./filter/fiter";
-import AppliedFilters from "./applied_filters/applied_filters";
-import Sorts from "./sorts/sorts";
 
 function Catalog(props) {
     return (

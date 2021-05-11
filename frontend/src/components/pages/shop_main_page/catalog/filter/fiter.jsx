@@ -6,11 +6,8 @@ function Filter(props) {
     return (
         <div className={styles.filter}>
             <Category/>
-            <Category/>
-            <Category/>
-            <Category/>
         </div>
     );
 }
 
-export default Filter;
+export default Filter

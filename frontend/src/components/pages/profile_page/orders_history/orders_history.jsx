@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './order_history.module.scss'
 import Order from "./order/order";
 
 function OrdersHistory(props) {
