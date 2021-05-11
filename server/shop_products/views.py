@@ -12,7 +12,7 @@ from .serializers import ProductSerializer, CategoriesSerializer
 
 tools_service = ToolsByService()
 etprom_service = EtpromByService()
-
+PAGINAGION_PAGE_NUMBER = 24
 
 @api_view(['GET'])
 def update_products(request):
@@ -30,7 +30,7 @@ class ProductsView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
     queryset = Products.objects.all()
     paginator = PageNumberPagination()
-    paginator.page_size = 10
+    paginator.page_size = PAGINAGION_PAGE_NUMBER
 
     filter_backends = [filters.SearchFilter, ]
     search_fields = ['name', 'article', 'product_id']
@@ -46,7 +46,7 @@ class CategorySearchProducsView(generics.ListCreateAPIView):
     """ Returns List of all products by ID. """
     serializer_class = ProductSerializer
     paginator = PageNumberPagination()
-    paginator.page_size = 10
+    paginator.page_size = PAGINAGION_PAGE_NUMBER
 
     def get_queryset(self):
         category_id = self.kwargs['category_id']
