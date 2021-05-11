@@ -25,9 +25,8 @@ function Product(props) {
                     {
                         props.desc === 'null'
                             ? <div className={styles.desc_text}>Нет описания</div>
-                            : <div className={styles.desc_text}>{props.desc}</div>
+                            : <div className={styles.desc_text}>{props.desc.replaceAll('<br>','\r\n')}</div>
                     }
-
                 </div>
             </div>
             <div className={styles.price_cart}>
