@@ -7,6 +7,8 @@ import {
     SET_FETCHING
 } from "./types";
 import category from "../../../components/pages/shop_main_page/catalog/filter/category/category";
+import {remove_all_category_filters} from "./actions";
+import {API_getProducts} from "./api/get_products";
 
 const initialState = {
     data: {},
@@ -60,17 +62,11 @@ export const productsReducer = (state = initialState, action) => {
             }
 
         case ADD_CATEGORY_FILTER:
-            if (state.id_categories.some(category => category.id === action.payload.id) && (state.id_categories.length !== 0)) {
-                console.log(true)
-                return state;
-
-            } else {
+                remove_all_category_filters();
                 return {
                     ...state,
-                    id_categories: [...state.id_categories, action.payload]
+                    id_categories: [action.payload]
                 }
-
-            }
 
         case REMOVE_CATEGORY_FILTER:
             const new_ids = state.id_categories.filter((ids) => ids.id !== action.payload);

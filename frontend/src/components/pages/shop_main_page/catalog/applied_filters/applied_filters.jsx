@@ -15,7 +15,8 @@ function AppliedFilters(props) {
         <div className={styles.applied}>
             <div className={styles.name}>Фильтры:</div>
             {props.products.id_categories.map((category) => (
-                <Applied key={category.id} id={category.id} title={category.title} remove_func={props.remove_category_filter}/>
+                <Applied key={category.id} id={category.id} title={category.title}
+                />
             ))}
         </div>
     );
@@ -29,6 +30,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     remove_category_filter,
+    API_getProducts,
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppliedFilters);

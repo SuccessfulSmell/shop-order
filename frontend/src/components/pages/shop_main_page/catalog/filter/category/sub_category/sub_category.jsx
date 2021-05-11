@@ -25,7 +25,10 @@ function SubCategory(props) {
             <details>
                 <summary className={styles.list_title}>{props.category_name}</summary>
                 {props.sub_categories.map((sub_category) =>
-                    <div onClick={() => onClickCategory({id: sub_category.id, title: sub_category.sub_category})} key={sub_category.id}><span className={styles.category_btn}>{sub_category.sub_category}</span></div>
+                    <div onClick={() =>
+                        onClickCategory({id: sub_category.id, title: sub_category.sub_category})} key={sub_category.id}>
+                        <span className={styles.category_btn}>{sub_category.sub_category}</span>
+                    </div>
                 )}
             </details>
         </div>
