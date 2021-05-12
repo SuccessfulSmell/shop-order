@@ -8,12 +8,18 @@ from rest_framework_jwt.views import api_settings, ObtainJSONWebToken
 
 from .serializers import UserSerializer, UserSerializerWithToken
 from .utils import my_jwt_response_handler as jwt_response_payload_handler
+from .service import get_user_products, set_discount, get_discount
 
 
 @api_view(['GET'])
 def current_user(request):
     serializer = UserSerializer(request.user)
-    return Response(serializer.data)
+    username = serializer.data.get('username', '')
+    products = get_user_products(username)
+    user_discount = get_discount(username)
+    response = {'user_data': serializer.data, 'user_orders': products,
+                'user_discount': user_discount}
+    return Response(response)
 
 
 class SignIn(ObtainJSONWebToken):
@@ -42,5 +48,7 @@ class SignUp(APIView):
         serializer = UserSerializerWithToken(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            username = serializer.data.get('username', '')
+            set_discount(username)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
