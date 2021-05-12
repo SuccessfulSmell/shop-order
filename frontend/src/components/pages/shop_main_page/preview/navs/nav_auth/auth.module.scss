@@ -2,12 +2,22 @@
 @import "../../../../../shared/main_mixins";
 
 .auth {
-  div {
+  a {
+    @include clear_link($main_color);
+    display: block;
     color: $main_color;
+    opacity: 60%;
     font-size: 23px;
     font-weight: 300;
     text-align: right;
     padding-bottom: 20px;
+
+    transition: opacity $animation_duration, text-shadow $animation_duration;
+  }
+
+  a:hover {
+    text-shadow: 0 0 25px $main_color;
+    opacity: 100%;
   }
 }
 

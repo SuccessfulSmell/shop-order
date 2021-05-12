@@ -4,6 +4,8 @@ import Auth from "./navs/nav_auth/auth";
 import Logo from "./logo/logo";
 import Title from "./title/title";
 import CatalogBtn from "./navs/nav_catalog/catalog_btn";
+import {connect} from "react-redux";
+import ProfileNavs from "./navs/navs_profile/profileNavs";
 
 function Preview(props) {
     return (
@@ -18,11 +20,27 @@ function Preview(props) {
                 </div>
 
                 <div className={styles.auth_block}>
-                    <Auth/>
+                    {props.isLoading
+                        ? ''
+                        : props.isAuthenticated
+                            ? <ProfileNavs/>
+                            : <Auth/>
+                    }
+
                 </div>
             </div>
         </div>
     );
 }
 
-export default Preview;
+const mapStateToProps = state => {
+    return {
+        auth: state.auth,
+        isAuthenticated: state.auth.isAuthenticated,
+        isLoading: state.auth.isLoading,
+    }
+}
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Preview);
