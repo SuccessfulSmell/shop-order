@@ -16,10 +16,11 @@ function Index(props) {
             <Route exact path="/auth/login"><Login/></Route>
             <Route exact path="/auth/signUp"><SingUp/></Route>
             <Route path="/product"><Product/></Route>
+            <Route path="/product/:slug"><Product/></Route>
 
             {props.auth.token
                 ? <Route path="/profile"><Profile/></Route>
-                : <Redirect to={`/auth/login`}/>
+                : <Redirect to={`/`}/>
             }
 
             <Route path="/error"><Error/></Route>

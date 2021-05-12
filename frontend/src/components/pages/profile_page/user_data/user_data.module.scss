@@ -22,14 +22,36 @@
 }
 
 .change {
+  @include clear_link($main_color);
+  position: relative;
   float: right;
   font-weight: 300;
   color: $main_color;
-  padding: 0 0 20px 0;
+  padding: 0 10px 0 0;
+  opacity: 70%;
+
+  transition: opacity $animation_duration;
+}
+
+.change:after {
+  @include line_after($main_color);
+  width: 0;
+  opacity: 30%;
+  transition: width $animation_duration, opacity $animation_duration;
+}
+
+.change:hover {
+  opacity: 100%;
+}
+
+.change:hover:after {
+  @include line_after($main_color);
+  width: 100%;
+  opacity: 90%;
 }
 
 .all_page {
-
+  position: relative;
 }
 
 .img {
@@ -39,7 +61,7 @@
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   .field_name {
     width: 100%;
   }
@@ -48,7 +70,10 @@
 
 @media (max-width: 545px) {
   .change {
-    padding: 5px 0 0 10px;
+    position: absolute;
+    top: -25px;
+    right: 10px;
+    padding: 0;
 
   }
   .field_name {

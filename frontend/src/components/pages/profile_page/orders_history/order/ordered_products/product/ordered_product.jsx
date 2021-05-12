@@ -5,7 +5,8 @@ function OrderedProduct(props) {
     return (
         <div className={styles.block}>
             <div className={`${styles.field}`}>
-                <img className={`${styles.img}`} src="https://images.by.prom.st/214025372_w640_h640_molotok-06-kg.jpg" alt=""/>
+                <img className={`${styles.img}`} src="https://images.by.prom.st/214025372_w640_h640_molotok-06-kg.jpg"
+                     alt=""/>
             </div>
 
             <div className={styles.field}>

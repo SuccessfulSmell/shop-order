@@ -1,14 +1,14 @@
 @import "../../../../shared/vars";
 @import "../../../../shared/main_mixins";
 
-.order{
+.order {
   border: 1px solid rgba(78, 93, 228, 0.1);
-  @include center_block ();
+  @include center_block();
   flex-direction: column;
   margin: 80px 0 80px 0;
 }
 
-.order_num{
+.order_num {
   @include center_block();
   width: 30%;
   min-width: 250px;

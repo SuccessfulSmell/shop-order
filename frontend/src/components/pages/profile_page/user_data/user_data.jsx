@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './user_data.module.scss'
 import {connect} from "react-redux";
 import loading_img from "../../shop_main_page/catalog/products/loading.svg";
+import {NavLink} from "react-router-dom";
 
 function UserData(props) {
     if (props.auth.user) {
@@ -19,7 +20,8 @@ function UserData(props) {
                     }
                 </span>
 
-                    <div className={styles.change}>изменить личные данные</div>
+                    <NavLink to={'/profile/change_user_data/'} className={styles.change}>изменить личные
+                        данные</NavLink>
                 </div>
 
                 <div className={styles.field_name}>

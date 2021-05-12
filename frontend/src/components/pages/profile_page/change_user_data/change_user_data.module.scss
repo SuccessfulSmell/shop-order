@@ -1,0 +1,79 @@
+@import "../../../shared/vars";
+@import "../../../shared/main_mixins";
+
+.input_fields {
+
+  input {
+    position: relative;
+    font-size: 0.7em;
+    min-width: 200px;
+    max-width: 400px;
+    width: 80%;
+    margin: 10px auto 30px auto;
+    padding: 5px 5px;
+    color: rgba(0, 0, 0, 0.5);
+
+    border-bottom: 1px solid rgba(78, 93, 228, 0.4);
+
+    transition: border-color $animation_duration, color $animation_duration, box-shadow $animation_duration;
+
+  }
+
+  input:focus {
+    border-color: rgba(78, 93, 228, 1);
+    color: rgba(0, 0, 0, 0.9);
+
+  }
+}
+
+.input_fields_title {
+  position: relative;
+  font-weight: bold;
+}
+
+
+.button {
+  background-color: $main_color;
+  margin: 10px 0 30px 0;
+  width: 80%;
+  min-width: 100px;
+  max-width: 200px;
+  height: 50px;
+
+  color: white;
+  border-radius: 10px;
+  border: 1px solid $main_color;
+
+  box-shadow: 0 5px 20px rgba(78, 93, 228, 0.6);
+  text-shadow: 0 5px 20px rgba(255, 255, 255, 0.7);
+
+  transition: box-shadow $animation_duration;
+}
+
+
+.button:hover {
+  box-shadow: 0 5px 25px rgba(78, 93, 228, 0.8);
+}
+
+.passwords {
+  width: 50%;
+  min-width: 240px;
+}
+
+.main_info {
+  width: 50%;
+  min-width: 240px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.error {
+
+  color: rgba(255, 0, 0, 0.7) !important;
+  font-size: 1em;
+  padding: 15px 0;
+}

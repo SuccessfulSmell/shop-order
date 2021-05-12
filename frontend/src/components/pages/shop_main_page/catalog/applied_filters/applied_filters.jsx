@@ -2,12 +2,7 @@ import React from 'react';
 import styles from './applied_filters.module.scss'
 import Applied from "./applied_filter/applied";
 import {API_getProducts} from "../../../../../redux/modules/products/api/get_products";
-import {
-    add_filter_category,
-    remove_category_filter,
-    set_current_page,
-    set_fatching
-} from "../../../../../redux/modules/products/actions";
+import {remove_category_filter} from "../../../../../redux/modules/products/actions";
 import {connect} from "react-redux";
 
 function AppliedFilters(props) {

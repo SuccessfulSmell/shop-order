@@ -1,7 +1,8 @@
 @import "../../../../../shared/vars";
 @import "../../../../../shared/main_mixins";
 
-.product{
+.product {
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,15 +16,19 @@
   font-size: 18px;
 }
 
-.img{
+.link_product {
+  @include clear_link(black);
+}
+
+.img {
   width: 85%;
 }
 
-.title{
+.title {
   position: relative;
 }
 
-.price_cart{
+.price_cart {
   justify-self: flex-end;
 
 
@@ -32,40 +37,39 @@
   justify-content: space-between;
 }
 
-.price{
+.price {
   width: 50%;
   font-size: 1.1em;
   font-weight: bold;
 }
 
-.cart{
- float: right;
+.cart {
+  float: right;
 }
 
-.img_cart{
+.img_cart {
   width: 32px;
   height: 32px;
   float: right;
   margin-right: 25px;
 }
 
-.title_text{
+.title_text {
   position: relative;
   font-size: 1.1em;
   font-weight: bold;
   margin-bottom: 10px;
-  max-height: 60px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.title_text:after{
+.title_text:after {
   @include line_after($main_color);
   height: 2px;
   width: 60%;
 }
 
-.desc_text{
+.desc_text {
   font-size: 0.8em;
   font-weight: normal;
   color: rgba(26, 34, 102, 0.8);
@@ -75,8 +79,7 @@
 }
 
 
-
-.sep_line{
+.sep_line {
   width: 60%;
   min-width: 100px;
   height: 2px;
@@ -85,7 +88,7 @@
 
 
 @media (max-width: 357px) {
-  .product{
+  .product {
     width: 100%;
     margin-right: 0;
   }

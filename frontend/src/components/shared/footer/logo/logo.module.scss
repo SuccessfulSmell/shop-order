@@ -1,13 +1,13 @@
 @import "../../../shared/vars";
 @import "../../../shared/main_mixins";
 
-.logo_name{
+.logo_name {
   font-weight: bolder;
   font-size: 25px;
   position: relative;
 }
 
-.logo_name:after{
+.logo_name:after {
   @include line_after(white);
   width: 70%;
 

@@ -1,8 +1,10 @@
 import {
     ADD_CATEGORY_FILTER,
     FILTER_PRODUCTS,
-    GET_PRODUCTS, REMOVE_ALL_CATEGORY_FILTER,
-    REMOVE_CATEGORY_FILTER, SEARCH_PRODUCTS,
+    GET_PRODUCTS,
+    REMOVE_ALL_CATEGORY_FILTER,
+    REMOVE_CATEGORY_FILTER,
+    SEARCH_PRODUCTS,
     SET_CURRENT_PAGE,
     SET_FETCHING
 } from "./types";
@@ -35,7 +37,7 @@ export const set_fatching = bool => ({
 })
 
 export const remove_category_filter = id => ({
-    type:REMOVE_CATEGORY_FILTER,
+    type: REMOVE_CATEGORY_FILTER,
     payload: id,
 })
 

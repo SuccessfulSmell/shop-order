@@ -1,8 +1,9 @@
 @import "../../../../shared/vars";
 @import "../../../../shared/main_mixins";
+
 $circle_size: 100px;
 
-.discount{
+.discount {
   position: relative;
   float: right;
   right: 0;
@@ -13,7 +14,7 @@ $circle_size: 100px;
   height: $circle_size;
 }
 
-.user_discount{
+.user_discount {
   @include center_block();
   flex-direction: column;
   width: 100%;
@@ -24,29 +25,28 @@ $circle_size: 100px;
   font-weight: lighter;
 }
 
-.percent{   
+.percent {
   font-size: 1.7em;
   font-weight: bold;
 }
 
 
-
 @media (max-width: 376px) {
-  .discount{
+  .discount {
     width: $circle_size - 10px;
     height: $circle_size - 10px;
   }
-  .user_discount{
+  .user_discount {
     font-size: 12px;
   }
 }
 
 @media (max-width: 300px) {
-  .discount{
+  .discount {
     width: $circle_size - 35px;
     height: $circle_size - 35px;
   }
-  .user_discount{
+  .user_discount {
     font-size: 10px;
   }
 }

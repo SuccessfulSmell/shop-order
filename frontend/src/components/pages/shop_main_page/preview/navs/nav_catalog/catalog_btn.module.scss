@@ -2,8 +2,7 @@
 @import "../../../../../shared/main_mixins";
 
 
-
-.link_body{
+.link_body {
   @include clear_link($main_color);
   width: 35%;
   height: 70px;
@@ -19,19 +18,19 @@
   transition: background $animation_duration, border $animation_duration, box-shadow $animation_duration;
 }
 
-.link_body:hover{
+.link_body:hover {
   background: $main_color;
   border: 2px solid $main_color;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 
 }
 
-.link_body:hover > .link_text{
+.link_body:hover > .link_text {
   color: #FFFFFF;
   text-shadow: 0 0 20px #FFFFFF;
 }
 
-.link_text{
+.link_text {
   @include clear_link($main_color);
   @include center_block();
   font-size: 28px;
@@ -39,13 +38,12 @@
   height: 100%;
 
 
-
   transition: color $animation_duration, text-shadow $animation_duration;
 }
 
 
 @media (max-width: 1399px) {
-  .link_text{
+  .link_text {
     font-size: 20px;
   }
   .link_body {

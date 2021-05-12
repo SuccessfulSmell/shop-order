@@ -36,7 +36,7 @@ export const loadUser = () => async (dispatch, getState) => {
         });
 }
 
-export const login = (username, password) => dispatch => {
+export const login = (username, password) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -44,18 +44,18 @@ export const login = (username, password) => dispatch => {
     }
     const request_body = JSON.stringify({username, password})
 
-    axios.post(BACK_URL + '/api/auth/sign_in/', request_body, config)
+    await axios.post(BACK_URL + '/api/auth/sign_in/', request_body, config)
         .then(res => {
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
             });
         }).catch(err => {
-        dispatch({type: LOGIN_FAIL})
-    });
+            dispatch({type: LOGIN_FAIL})
+        });
 }
 
-export const logout = () => (dispatch, getState) => {
+export const logout = () => async (dispatch, getState) => {
     const token = getState().auth.token
     const config = {
         headers: {
@@ -67,15 +67,15 @@ export const logout = () => (dispatch, getState) => {
         config.headers['Authorization'] = `Token ${token}`
     }
 
-    axios.post(BACK_URL + '/api/auth/logout/', null, config)
+    await axios.post(BACK_URL + '/api/auth/logout/', null, config)
         .then(res => {
             dispatch({type: LOGOUT_SUCCESS,});
         }).catch(err => {
-        dispatch({type: AUTH_ERROR,});
-    });
+            dispatch({type: AUTH_ERROR,});
+        });
 }
 
-export const register = (username, password) => dispatch => {
+export const register = (username, password) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -83,13 +83,13 @@ export const register = (username, password) => dispatch => {
     }
     const request_body = JSON.stringify({username, password})
 
-    axios.post(BACK_URL + '/api/auth/sign_up/', request_body, config)
+    await axios.post(BACK_URL + '/api/auth/sign_up/', request_body, config)
         .then(res => {
             dispatch({
                 type: SIGN_UP_SUCCESS,
                 payload: res.data
             });
         }).catch(err => {
-        dispatch({type: SIGN_UP_FAIL})
-    });
+            dispatch({type: SIGN_UP_FAIL})
+        });
 }

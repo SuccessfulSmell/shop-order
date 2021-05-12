@@ -1,24 +1,24 @@
-@mixin flex-around () {
+@mixin flex-around() {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-@mixin flex-column () {
+@mixin flex-column() {
   display: flex;
   flex-direction: column;
 }
 
-@mixin clear_link ($color){
+@mixin clear_link($color) {
   text-decoration: none;
   color: $color;
 
-  &:hover{
+  &:hover {
     color: $color;
   }
 }
 
-@mixin line_after($color){
+@mixin line_after($color) {
   // root position: relative;
   content: '';
   position: absolute;
@@ -29,7 +29,7 @@
   background-color: $color;
 }
 
-@mixin center_block(){
+@mixin center_block() {
   display: flex;
   justify-content: center;
   align-items: center;

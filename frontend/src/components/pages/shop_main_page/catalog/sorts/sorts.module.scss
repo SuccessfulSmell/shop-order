@@ -1,13 +1,13 @@
 @import "../../../../shared/vars";
 @import "../../../../shared/main_mixins";
 
-.sorts{
+.sorts {
   width: 30%;
   min-width: 150px;
   max-width: 300px;
 }
 
-select{
+select {
   width: 100%;
   min-width: 150px;
   max-width: 300px;
@@ -20,12 +20,12 @@ select{
   color: rgba(78, 93, 228, 0.7);
 }
 
-option{
+option {
   border: none;
 }
 
 @media (max-width: 523px) {
-  .sorts{
+  .sorts {
     width: 100%;
   }
 
