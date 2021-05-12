@@ -1,0 +1,22 @@
+@import "../../../../../../shared/vars";
+@import "../../../../../../shared/main_mixins";
+
+.total {
+  @include center_block();
+  width: 15%;
+  min-width: 150px;
+  height: 40px;
+  float: right;
+
+  background: #4E5DE4;
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px 0 0 15px;
+
+  color: white;
+  font-size: 20px;
+}
+
+.total_price {
+  padding-left: 5px;
+  font-weight: bold;
+}

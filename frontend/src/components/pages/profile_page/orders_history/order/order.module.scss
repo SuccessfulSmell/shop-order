@@ -1,0 +1,24 @@
+@import "../../../../shared/vars";
+@import "../../../../shared/main_mixins";
+
+.order {
+  border: 1px solid rgba(78, 93, 228, 0.1);
+  @include center_block();
+  flex-direction: column;
+  margin: 80px 0 80px 0;
+}
+
+.order_num {
+  @include center_block();
+  width: 30%;
+  min-width: 250px;
+  min-height: 50px;
+
+  text-align: center;
+  color: white;
+  font-size: 24px;
+
+  background: rgba(78, 93, 228, 0.87);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 35px 35px;
+}

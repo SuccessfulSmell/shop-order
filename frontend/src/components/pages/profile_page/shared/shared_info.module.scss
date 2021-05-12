@@ -1,0 +1,14 @@
+@import "../../../shared/vars";
+@import "../../../shared/main_mixins";
+
+.nav_links {
+  display: flex;
+}
+
+.sep_line {
+  width: 40%;
+  min-width: 260px;
+  height: 2px;
+  background-color: $main_color;
+  margin: 40px 0;
+}

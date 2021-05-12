@@ -1,0 +1,52 @@
+@import "../../shared/vars";
+@import "../../shared/main_mixins";
+
+$icon_size: 18px;
+
+.search {
+  width: 100%;
+  padding: 7px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.41);
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  img {
+    width: $icon_size + 5px;
+    height: $icon_size + 5px;
+  }
+}
+
+.icon {
+  width: $icon_size;
+  height: $icon_size;
+  border: none;
+  margin: 0 10px;
+}
+
+.icon_search {
+  background: url("buttons/search/search.png") 50% 50%/cover no-repeat;
+
+}
+
+.icon_clean {
+  position: absolute;
+  background: url("buttons/clear/clean.png") 50% 50%/cover no-repeat;
+}
+
+.search_field {
+  border: none;
+  width: 90%;
+  //margin: 0 10px;
+  color: rgba(0, 0, 0, 0.6);
+  transition: color $animation_duration;
+}
+
+.search_field:focus {
+  border: none;
+  outline: none;
+  color: rgba(0, 0, 0, 0.9);
+}

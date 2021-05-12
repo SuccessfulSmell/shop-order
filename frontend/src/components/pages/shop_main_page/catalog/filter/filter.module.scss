@@ -1,0 +1,15 @@
+@import "../../../../shared/vars";
+@import "../../../../shared/main_mixins";
+
+.filter {
+  width: 30%;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}

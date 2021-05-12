@@ -1,0 +1,114 @@
+@import "../../../../../shared/vars";
+@import "../../../../../shared/main_mixins";
+
+.auth {
+  a {
+    @include clear_link($main_color);
+    display: block;
+    color: $main_color;
+    opacity: 60%;
+    font-size: 23px;
+    font-weight: 300;
+    text-align: right;
+    padding-bottom: 20px;
+
+    transition: opacity $animation_duration, text-shadow $animation_duration;
+  }
+
+  a:hover {
+    text-shadow: 0 0 25px $main_color;
+    opacity: 100%;
+  }
+}
+
+$icon_size: 32px;
+
+.login {
+  position: relative;
+  padding-right: $icon_size + 20px;
+}
+
+.login:after {
+  content: '';
+  background: url('login.png') 50% 50%/cover no-repeat;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $icon_size;
+  height: $icon_size;
+}
+
+
+.signup {
+  position: relative;
+  padding-right: $icon_size + 20px;
+}
+
+.signup:after {
+  content: '';
+  background: url('add-user.png') 50% 50%/cover no-repeat;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $icon_size;
+  height: $icon_size;
+
+}
+
+@media (max-width: 991px) {
+  $icon_size: 24px;
+  .signup:after {
+    width: $icon_size;
+    height: $icon_size;
+  }
+  .signup {
+    padding-right: $icon_size + 10px;
+  }
+  .login {
+    padding-right: $icon_size + 10px;
+  }
+
+  .login:after {
+    width: $icon_size;
+    height: $icon_size;
+  }
+
+  .auth {
+    a {
+      font-size: 16px;
+
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  $icon_size: 22px;
+  .signup:after {
+    width: $icon_size;
+    height: $icon_size;
+  }
+  .signup {
+    padding-right: $icon_size + 10px;
+  }
+  .login {
+    padding-right: $icon_size + 10px;
+  }
+
+  .login:after {
+    width: $icon_size;
+    height: $icon_size;
+  }
+
+  .auth {
+    a {
+      font-size: 14px;
+    }
+  }
+  .auth {
+    position: absolute;
+    width: 50%;
+    top: 30px;
+    right: 25px;
+  }
+}
+

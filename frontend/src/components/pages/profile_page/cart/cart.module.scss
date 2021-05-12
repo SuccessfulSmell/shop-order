@@ -1,0 +1,8 @@
+@import "../../../shared/vars";
+@import "../../../shared/main_mixins";
+
+.cart {
+  @include flex-around();
+  position: relative;
+  margin-bottom: 100px;
+}
