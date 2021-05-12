@@ -1,7 +1,7 @@
 @import "../../../shared/vars";
 @import "../../../shared/main_mixins";
 
-.link{
+.link {
   @include clear_link($text_color_bg_blue);
   position: relative;
   opacity: 80%;
@@ -10,7 +10,7 @@
   transition: opacity 0.3s;
 }
 
-.link:hover{
+.link:hover {
   opacity: 100%;
   color: $text_color_bg_blue;
 }

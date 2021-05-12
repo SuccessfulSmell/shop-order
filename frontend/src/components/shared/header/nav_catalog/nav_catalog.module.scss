@@ -1,8 +1,9 @@
 @import "../../../shared/vars";
 @import "../../../shared/main_mixins";
+
 $btn_height: 50px;
 
-.nav_btn{
+.nav_btn {
   float: right;
   width: 80%;
   min-width: 140px;
@@ -15,7 +16,7 @@ $btn_height: 50px;
   position: relative;
 }
 
-.nav_link{
+.nav_link {
   @include clear_link(white);
   width: 100%;
   height: 100%;
@@ -25,9 +26,10 @@ $btn_height: 50px;
   transition: color $animation_duration;
 }
 
-.nav_btn:hover{
+.nav_btn:hover {
   background-color: #fff;
-  .nav_link{
-    color:$main_color;
+
+  .nav_link {
+    color: $main_color;
   }
 }

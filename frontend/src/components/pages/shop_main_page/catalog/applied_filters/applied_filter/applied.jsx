@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './applied.module.scss'
 import img from './clean.png'
-import {API_getCategories} from "../../../../../../redux/modules/categories/api/get_categories";
 import {connect} from "react-redux";
 import {remove_category_filter, set_current_page, set_fatching} from "../../../../../../redux/modules/products/actions";
 import {API_getProducts} from "../../../../../../redux/modules/products/api/get_products";
@@ -20,7 +19,7 @@ function Applied(props) {
             <div className={styles.name}>
                 {props.title}
 
-                <img onClick={() => onClickHandler(props.id)}  src={img} alt=""/>
+                <img onClick={() => onClickHandler(props.id)} src={img} alt=""/>
             </div>
         </div>
     );

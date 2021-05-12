@@ -3,7 +3,7 @@
 
 $btn_link_h: 40px;
 
-.link_body{
+.link_body {
   @include clear_link($main_color);
   width: 33%;
   height: $btn_link_h;
@@ -19,37 +19,36 @@ $btn_link_h: 40px;
   transition: background $animation_duration, border $animation_duration, box-shadow $animation_duration;
 }
 
-.link_body:hover{
+.link_body:hover {
   background: $main_color;
   border: 2px solid $main_color;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 
 }
 
-.link_body:hover > .link_text{
+.link_body:hover > .link_text {
   color: #FFFFFF;
   text-shadow: 0 0 20px #FFFFFF;
 }
 
-.link_text{
+.link_text {
   @include clear_link($main_color);
   @include center_block();
   width: 100%;
   height: 100%;
 
 
-
   transition: color $animation_duration, text-shadow $animation_duration;
 }
 
-.active_link{
+.active_link {
   color: #FFFFFF;
   text-shadow: 0 0 20px #FFFFFF;
   background: $main_color;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 }
 
-.active_link > .link_text{
+.active_link > .link_text {
   color: #FFFFFF;
   text-shadow: 0 0 20px #FFFFFF;
 }

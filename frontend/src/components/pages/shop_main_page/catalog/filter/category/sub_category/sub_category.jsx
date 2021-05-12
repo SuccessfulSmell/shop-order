@@ -5,11 +5,10 @@ import {API_getProducts_byCatID} from "../../../../../../../redux/modules/produc
 import {add_filter_category, set_current_page, set_fatching} from "../../../../../../../redux/modules/products/actions";
 
 
-
 function SubCategory(props) {
     let categories = []
 
-    const  onClickCategory = async (sub_category) => {
+    const onClickCategory = async (sub_category) => {
         props.add_filter_category(sub_category);
         categories.push(sub_category)
         props.set_fatching(false)
@@ -17,7 +16,6 @@ function SubCategory(props) {
         props.set_current_page(1);
         categories = props.products.id_categories
     }
-
 
 
     return (
@@ -34,7 +32,6 @@ function SubCategory(props) {
         </div>
     );
 }
-
 
 
 const mapStateToProps = state => {

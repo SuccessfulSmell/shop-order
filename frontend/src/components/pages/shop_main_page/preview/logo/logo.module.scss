@@ -1,16 +1,17 @@
-.img{
+.img {
   margin-right: 10px;
 }
-.name{
+
+.name {
 
 }
 
-.logo{
+.logo {
   display: flex;
 }
 
 @media (max-width: 576px) {
-  .logo{
+  .logo {
     position: absolute;
     width: 50%;
     top: 30px;

@@ -5,11 +5,6 @@ import {logout} from "../../../../../../redux/modules/auth/actions";
 import {connect} from "react-redux";
 
 function ProfileNavs(props) {
-    const handleClick = (event) => {
-        props.logout();
-    }
-
-
     return (
         <div className={styles.auth}>
             <NavLink to={'/profile/user'} className={styles.signup}>Личный кабинет</NavLink>

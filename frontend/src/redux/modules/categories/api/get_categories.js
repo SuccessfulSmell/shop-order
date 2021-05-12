@@ -1,8 +1,7 @@
-
 import {all_categories} from "../actions";
 
 export const API_getCategories = () => async (dispatch) => {
-    try{
+    try {
 
         await fetch('http://127.0.0.1:8000/api/products/get_categories/')
             .then(response => response.json())

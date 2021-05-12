@@ -2,68 +2,78 @@
 @import "../../../shared/main_mixins";
 
 
-.product_info{
+.product_info {
 
 }
 
-.title_content{
+.loading_img_ {
+  width: 50%;
+  margin-bottom: 200px;
+}
+
+.title_content {
   display: flex;
   position: relative;
 
 }
 
-.main_info{
+.main_info {
 
 }
 
-.img_wrapper{
+.img_wrapper {
   width: 40%;
   position: relative;
 }
 
-.img{
+.img {
   width: 100%;
   max-width: 300px;
   min-width: 50px;
   max-height: 100%;
 }
 
-.title_text{
+.title_text {
   float: right;
   width: 57%;
   font-size: 18px;
   margin-left: 3%;
 }
 
-.name{
+.center_block {
+  @include center_block();
+
+}
+
+.name {
   margin-bottom: 15px;
 }
 
-.name span{
+.name span {
   position: relative;
   font-size: 32px;
   font-weight: bold;
 
 }
 
-.name span:after{
+.name span:after {
   @include line_after($main_color);
   height: 2px;
 }
 
-.desc{
+.desc {
   font-size: 16px;
   color: rgba(0, 0, 0, 0.9);
 }
 
-.price_block{
+.price_block {
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
 
 }
 
-.price{
+.price {
   color: $main_color;
   text-shadow: 0 5px 25px rgba(78, 93, 228, 0.3);
 
@@ -72,7 +82,7 @@
 
 }
 
-.btn_add_cart{
+.btn_add_cart {
   @include center_block();
   width: 180px;
   min-width: 100px;
@@ -87,29 +97,29 @@
   transition: color $animation_duration, background-color $animation_duration;
 }
 
-.btn_add_cart:hover{
+.btn_add_cart:hover {
   color: white;
   background-color: $main_color;
 }
 
-.main_info_title{
+.main_info_title {
   margin-bottom: 20px;
   padding-top: 100px;
 }
 
-.main_info_title span{
+.main_info_title span {
   position: relative;
   font-weight: bold;
   font-size: 20px;
 }
 
-.main_info_title span:after{
+.main_info_title span:after {
   @include line_after($main_color);
   height: 2px;
 }
 
 @media (max-width: 576px) {
-  .title_content{
+  .title_content {
     display: block;
     position: relative;
   }
@@ -121,7 +131,7 @@
     width: 100%;
   }
 
-  .img_wrapper{
+  .img_wrapper {
     width: 100%;
   }
 }

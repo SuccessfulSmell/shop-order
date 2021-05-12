@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import styles from './products.module.scss'
 import img_warning from './noData.svg'
@@ -12,8 +12,6 @@ import {set_current_page, set_fatching} from "../../../../../redux/modules/produ
 import Pagination from "./product/pagination";
 
 function Products(props) {
-
-
 
 
     return (
@@ -33,6 +31,7 @@ function Products(props) {
                         ? props.products.data.results.map(product =>
                             <Product
                                 key={product.product_id}
+                                id={product.product_id}
                                 title={product.name}
                                 desc={product.description}
                                 picture={product.picture}

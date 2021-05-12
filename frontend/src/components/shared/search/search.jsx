@@ -9,10 +9,6 @@ import {connect} from "react-redux";
 function Search(props) {
     const [text, setText] = useState('');
 
-    const handleChange = (event) => {
-        event.preventDefault();
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (text) {
@@ -29,7 +25,6 @@ function Search(props) {
 
             <div className={styles.search}>
                 <button type='submit'
-
                         className={`${styles.icon} ${styles.icon_search}`}> </button>
 
                 <input className={styles.search_field}
@@ -39,8 +34,8 @@ function Search(props) {
                        onChange={(event => setText(event.target.value))}
                 />
                 {text
-                ? <img onClick={() => setText('')} src={img} alt=""/>
-                : ""
+                    ? <img onClick={() => setText('')} src={img} alt=""/>
+                    : ""
                 }
 
             </div>

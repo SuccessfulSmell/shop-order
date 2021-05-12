@@ -1,6 +1,7 @@
 import {catalog_info} from "../actions";
+import {BACK_URL} from "../../../BACK_URL";
 
-let initialPage =`http://localhost:8000/api/products/get_products`
+let initialPage = BACK_URL + `/api/products/get_products/?page=1`
 
 export const API_getProducts = (page = initialPage) => async (dispatch) => {
     try {

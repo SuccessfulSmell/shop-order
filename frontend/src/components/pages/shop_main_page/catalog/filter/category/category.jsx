@@ -17,14 +17,14 @@ function Category(props) {
                 <span className={styles.category_name}>Категории:</span>
 
                 {props.categories.map((category, index) =>
-                        (category.sub_category.length > 0)
-                            ? <SubCategory
-                                key={index}
-                                category_name={category.category}
-                                sub_categories={category.sub_category}
-                            />
-                            : ''
-                    )
+                    (category.sub_category.length > 0)
+                        ? <SubCategory
+                            key={index}
+                            category_name={category.category}
+                            sub_categories={category.sub_category}
+                        />
+                        : ''
+                )
                 }
             </div>
         </div>
