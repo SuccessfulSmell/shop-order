@@ -10,5 +10,6 @@ export const API_getProducts_search = (slug = initialPage) => async (dispatch) =
             .then(data => dispatch(search_products(data)))
     } catch (e) {
         console.log(e)
+
     }
 }
