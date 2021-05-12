@@ -10,5 +10,8 @@
     "Получить список товаров по ID категории": "http://127.0.0.1:8000/api/products/get_products/1/",
     "Получить список категорий": "http://127.0.0.1:8000/api/products/get_categories/",
     "Обновление товаров": "http://127.0.0.1:8000/api/products/update_products/"
+  },
+  "Личный кабинет": {
+    "Добавить новый заказ": "http://127.0.0.1:8000/api/orders/add_order/"
   }
 }
