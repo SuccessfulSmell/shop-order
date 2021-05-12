@@ -1,0 +1,74 @@
+@import "../../../../../../shared/vars";
+@import "../../../../../../shared/main_mixins";
+
+.block{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.field{
+  width: 20%;
+  padding: 0 20px 0 0;
+  min-width: 100px;
+}
+
+.field span{
+  font-weight: 300;
+  padding-left: 5px;
+}
+
+.img{
+  width: 100%;
+  max-width: 150px;
+  min-width: 50px;
+  max-height: 100%;
+}
+
+.title{
+
+}
+
+.count{
+
+}
+
+.price{
+
+}
+
+.total{
+
+}
+
+.sep_line{
+  width: 100%;
+  height: 1px;
+  background-color: rgba(78, 93, 228, 0.05);
+  margin: 20px 0;
+}
+
+@media (max-width: 991px) {
+  .block{
+    display: flex;
+    text-align: left;
+  }
+  .field{
+    width: 100%;
+    padding: 3px 0;
+  }
+  .field:first-child{
+
+  }
+}
+
+@media (max-width: 320px) {
+  .field{
+    width: 100%;
+
+    font-size: 14px;
+  }
+
+}

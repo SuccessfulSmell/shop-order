@@ -1,0 +1,28 @@
+@import "../../../../../shared/vars";
+@import "../../../../../shared/main_mixins";
+
+
+
+.category{
+  margin-bottom: 40px;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+.category_name{
+  position: relative;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.category_name:after{
+  @include line_after($main_color);
+}
+
+
+@media (max-width: 767px) {
+  .category{
+    overflow-x:hidden ;
+    min-width: 150px;
+  }
+}

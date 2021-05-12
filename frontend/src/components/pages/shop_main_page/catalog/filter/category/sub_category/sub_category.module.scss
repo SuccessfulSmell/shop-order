@@ -1,0 +1,63 @@
+@import "../../../../../../shared/vars";
+@import "../../../../../../shared/main_mixins";
+
+
+.category_list{
+  padding-top: 10px;
+  padding-left: 25px;
+  overflow-x: hidden;
+  div{
+    padding: 10px 0 0 25px;
+    font-weight: normal;
+    color: rgba(78, 93, 228, 0.8);
+    min-width: 30px;
+  }
+}
+.list_title{
+  position: relative;
+  padding-left: 17px;
+  font-size: 1em;
+  font-weight: normal;
+
+
+}
+
+.category_btn{
+    cursor: pointer;
+  }
+
+.list_title::marker {
+  display: none;
+}
+
+details > summary {
+  list-style: none;
+}
+
+.list_title:after{
+  position: absolute;
+  content: '';
+  top: 6px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: url("play.svg") 50% 50%/cover no-repeat;
+  opacity: 90%;
+  transition: transform $animation_duration;
+}
+
+details[open] summary ~ * {
+  animation: sweep $animation_duration + 0.2s ease-in-out;
+
+}
+
+details[open] {
+  .list_title:after{
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes sweep {
+  0%    {opacity: 0; margin-left: -10px}
+  100%  {opacity: 1; margin-left: 0}
+}

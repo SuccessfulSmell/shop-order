@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Index from "./components";
+import {loadUser} from "./redux/modules/auth/actions";
+import {connect} from "react-redux";
+
+function App(props) {
+    useEffect(() => {
+        props.loadUser();
+    })
+    return (
+        <div>
+            <Index/>
+        </div>
+    );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {}
+}
+
+const mapDispatchToProps = {
+    loadUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

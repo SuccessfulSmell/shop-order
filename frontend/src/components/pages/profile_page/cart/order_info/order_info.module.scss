@@ -1,0 +1,66 @@
+@import "../../../../shared/vars";
+@import "../../../../shared/main_mixins";
+
+.order_info{
+  width: 28%;
+  margin-left: 2%;
+  background: linear-gradient(180deg, rgba(78, 93, 228, 0) 0%, rgba(78, 93, 228, 0.03) 16.67%, rgba(78, 93, 228, 0.03) 75%, rgba(78, 93, 228, 0) 100%);
+
+}
+
+.total_block{
+  margin: 40px;
+}
+
+.price{
+  font-weight: bold;
+  font-size: 1.5em;
+  color: $main_color;
+  text-shadow: 0 5px 15px rgba(78, 93, 228, 0.4);
+}
+
+.total_item{
+  font-weight: bold;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.sep_line{
+  width: 50%;
+  min-width: 100px;
+  height: 2px;
+  background-color: $main_color;
+  margin: 10px 0;
+}
+
+.order_btn{
+  @include center_block();
+  width: 150px;
+  height: 50px;
+  background: $main_color;
+  box-shadow: 3px 3px 30px rgba(78, 93, 228, 0.5);
+  border-radius: 22px;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+
+  transition: box-shadow $animation_duration, color $animation_duration;
+}
+
+.order_btn:hover{
+  box-shadow: 3px 3px 30px rgba(78, 93, 228, 0.8);
+  color: rgba(255, 255, 255, 1);
+}
+
+@media (max-width: 767px) {
+  .order_info{
+    width: 100%;
+  }
+  .total_block{
+    margin: 0;
+  }
+  .total_item{
+    font-size: 14px;
+  }
+}
