@@ -96,6 +96,8 @@ class ToolsClient(BaseClient):
         products = []
         offers = self.__get_offers()
         for offer in offers:
+            price = offer.get('price', 0)
+            offer['price'] = float(price)
             dict_data = json.dumps(offer, ensure_ascii=False)
             product = dict_data.replace('null', '"null"').replace('none', '"none"')
             products.append(Product.parse_raw(product))
@@ -130,11 +132,12 @@ class EtpromClient(BaseClient):
         """
         category_id = product.get('categoryId', '')
         category_name = self.__get_product_category(categories, category_id)
+        price = product.get('price', ''),
         return {
             '@id': product.get('@id', ''),
             '@available': product.get('@available', ''),
             'url': product.get('url', ''),
-            'price': product.get('price', ''),
+            'price': float(price[0]),
             'currency': 'BYN',
             'categoryName': category_name,
             'picture': product.get('picture', ''),

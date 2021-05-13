@@ -29,12 +29,24 @@ def update_products(request):
 class ProductsView(generics.ListCreateAPIView):
     """ Returns List of all products. """
     serializer_class = ProductSerializer
-    queryset = Products.objects.all()
     paginator = PageNumberPagination()
     paginator.page_size = PAGINAGION_PAGE_NUMBER
 
     filter_backends = [filters.SearchFilter, ]
     search_fields = ['name', 'article', 'product_id']
+
+    def get_queryset(self):
+        sort = self.request.GET.get('sort', None)
+        if sort == 'max_price':
+            return Products.objects.all().order_by('-price')
+        elif sort == 'min_price':
+            return Products.objects.all().order_by('price')
+        elif sort == 'max_name':
+            return Products.objects.all().order_by('name')
+        elif sort == 'min_name':
+            return Products.objects.all().order_by('-name')
+        else:
+            return Products.objects.all()
 
 
 class CategoriesView(generics.ListCreateAPIView):
@@ -50,8 +62,18 @@ class CategorySearchProducsView(generics.ListCreateAPIView):
     paginator.page_size = PAGINAGION_PAGE_NUMBER
 
     def get_queryset(self):
+        sort = self.request.GET.get('sort', None)
         category_id = self.kwargs['category_id']
-        return Products.objects.filter(category__id=category_id)
+        if sort == 'max_price':
+            return Products.objects.filter(category__id=category_id).order_by('-price')
+        elif sort == 'min_price':
+            return Products.objects.filter(category__id=category_id).order_by('price')
+        elif sort == 'max_name':
+            return Products.objects.filter(category__id=category_id).order_by('name')
+        elif sort == 'min_name':
+            return Products.objects.filter(category__id=category_id).order_by('-name')
+        else:
+            return Products.objects.filter(category__id=category_id)
 
 
 class IDSearchProducsView(generics.ListCreateAPIView):
