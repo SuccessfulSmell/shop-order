@@ -6,8 +6,9 @@ import {connect} from "react-redux";
 
 function App(props) {
     useEffect(() => {
+
         props.loadUser();
-    }, [props])
+    }, [])
     return (
         <div>
             <Index/>

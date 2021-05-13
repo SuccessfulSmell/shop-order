@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import styles from './products.module.scss'
 import img_warning from './noData.svg'
@@ -12,6 +12,9 @@ import {set_current_page, set_fatching} from "../../../../../redux/modules/produ
 import Pagination from "./product/pagination";
 
 function Products(props) {
+    useEffect(() => {
+
+    }, []);
 
 
     return (

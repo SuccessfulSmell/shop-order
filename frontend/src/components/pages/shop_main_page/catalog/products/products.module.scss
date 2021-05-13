@@ -22,9 +22,10 @@
   margin-bottom: 50px;
   @include center_block();
 
+
   div {
     padding: 10px;
-    cursor: pointer;
+    cursor: pointer !important;
 
 
     //transition: color $animation_duration, background-color $animation_duration;

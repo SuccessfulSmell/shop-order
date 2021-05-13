@@ -3,6 +3,8 @@ import {API_getProducts} from "../../../../../../redux/modules/products/api/get_
 import {set_current_page, set_fatching} from "../../../../../../redux/modules/products/actions";
 import {connect} from "react-redux";
 import styles from "../products.module.scss";
+import {API_getProducts_byCatID} from "../../../../../../redux/modules/products/api/get_products_by_catID";
+import {API_getProducts_search} from "../../../../../../redux/modules/products/api/get_products_search";
 
 function Pagination(props) {
     const current_page = props.products.currentPage
@@ -16,12 +18,25 @@ function Pagination(props) {
         pages.push(i);
     }
 
-    useEffect(() => {
-        props.API_getProducts();
+    useEffect(async () => {
+        debugger;
+        if ((props.products.id_categories.length === 0) && (props.products.searchBy === '')) {
+            await props.API_getProducts();
+            props.set_current_page(1);
+
+        } else if (props.products.id_categories.length >= 1) {
+            await props.API_getProducts_byCatID(props.products.id_categories[0]);
+            props.set_current_page(1);
+        } else if (props.products.searchBy !== '') {
+            await props.API_getProducts_search(props.products.searchBy);
+            props.set_current_page(1);
+        }
+
 
     }, [])
 
     const onClickPagination = async (page) => {
+        debugger;
         if ((current_page === 1) && (last_page > 1)) {
 
             url_arr = props.products.data.next.split('&')
@@ -38,8 +53,15 @@ function Pagination(props) {
 
 
         props.set_fatching(false);
-        await props.API_getProducts(url_arr[1] ? URL + page + '&' + url_arr[1] : URL + page);
+        debugger;
+
+        if (props.products.searchBy) {
+            await props.API_getProducts_search(props.products.searchBy, page);
+        } else {
+            await props.API_getProducts(url_arr[1] ? URL + page + '&' + url_arr[1] : URL + page);
+        }
         props.set_current_page(page);
+
     }
 
 
@@ -90,6 +112,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     API_getProducts,
+    API_getProducts_byCatID,
+    API_getProducts_search,
     set_current_page,
     set_fatching,
 }

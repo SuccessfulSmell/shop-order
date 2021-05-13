@@ -16,6 +16,7 @@ const initialState = {
     isAuthenticated: false,
     isLoading: false,
     user: null,
+    error: null,
 }
 
 export const authReducer = (state = initialState, action) => {
@@ -53,6 +54,7 @@ export const authReducer = (state = initialState, action) => {
                 isAuthenticated: false,
                 isLoading: false,
                 user: null,
+                error: action.payload,
             }
         case LOGIN_SUCCESS:
         case SIGN_UP_SUCCESS:
@@ -62,6 +64,7 @@ export const authReducer = (state = initialState, action) => {
                 ...action.payload,
                 isAuthenticated: true,
                 isLoading: false,
+                error: null,
             }
 
         default:

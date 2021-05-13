@@ -29,10 +29,14 @@ export const loadUser = () => async (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: USER_LOADED,
-                payload: res.data
+                payload: res.data.user_data
             });
         }).catch(err => {
-            dispatch({type: AUTH_ERROR})
+            debugger;
+            dispatch({
+                type: AUTH_ERROR,
+                payload: err,
+            })
         });
 }
 
@@ -51,7 +55,10 @@ export const login = (username, password) => async dispatch => {
                 payload: res.data
             });
         }).catch(err => {
-            dispatch({type: LOGIN_FAIL})
+            dispatch({
+                type: LOGIN_FAIL,
+                payload: err,
+            })
         });
 }
 
@@ -90,6 +97,9 @@ export const register = (username, password) => async dispatch => {
                 payload: res.data
             });
         }).catch(err => {
-            dispatch({type: SIGN_UP_FAIL})
+            dispatch({
+                type: SIGN_UP_FAIL,
+                payload: err,
+            })
         });
 }

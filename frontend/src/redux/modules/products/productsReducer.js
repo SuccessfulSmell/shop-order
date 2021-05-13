@@ -18,6 +18,7 @@ const initialState = {
     pageCount: 1,
     totalCount: 0,
     isFetched: false,
+    searchBy: ''
 }
 
 export const productsReducer = (state = initialState, action) => {
@@ -29,7 +30,8 @@ export const productsReducer = (state = initialState, action) => {
                 data: action.payload,
                 totalCount: action.payload.count,
                 isFetched: true,
-                pageCount: Math.ceil(action.payload.count / state.perPage)
+                pageCount: Math.ceil(action.payload.count / state.perPage),
+                searchBy: '',
             }
 
         case FILTER_PRODUCTS:
@@ -38,7 +40,8 @@ export const productsReducer = (state = initialState, action) => {
                 data: action.payload,
                 totalCount: action.payload.count,
                 isFetched: true,
-                pageCount: Math.ceil(action.payload.count / state.perPage)
+                pageCount: Math.ceil(action.payload.count / state.perPage),
+                searchBy: '',
             }
         case SEARCH_PRODUCTS:
             return {
@@ -46,7 +49,8 @@ export const productsReducer = (state = initialState, action) => {
                 data: action.payload,
                 totalCount: action.payload.count,
                 isFetched: true,
-                pageCount: Math.ceil(action.payload.count / state.perPage)
+                pageCount: Math.ceil(action.payload.count / state.perPage),
+                searchBy: action.payload.searchBy
             }
 
         case SET_CURRENT_PAGE:
