@@ -14,6 +14,7 @@ tools_service = ToolsByService()
 etprom_service = EtpromByService()
 PAGINAGION_PAGE_NUMBER = 24
 
+
 @api_view(['GET'])
 def update_products(request):
     """ Update products in database. """
@@ -43,7 +44,7 @@ class CategoriesView(generics.ListCreateAPIView):
 
 
 class CategorySearchProducsView(generics.ListCreateAPIView):
-    """ Returns List of all products by ID. """
+    """ Returns List of all products by category ID. """
     serializer_class = ProductSerializer
     paginator = PageNumberPagination()
     paginator.page_size = PAGINAGION_PAGE_NUMBER
@@ -51,3 +52,14 @@ class CategorySearchProducsView(generics.ListCreateAPIView):
     def get_queryset(self):
         category_id = self.kwargs['category_id']
         return Products.objects.filter(category__id=category_id)
+
+
+class IDSearchProducsView(generics.ListCreateAPIView):
+    """ Returns List of all products by product Django ID. """
+    serializer_class = ProductSerializer
+    paginator = PageNumberPagination()
+    paginator.page_size = PAGINAGION_PAGE_NUMBER
+
+    def get_queryset(self):
+        dj_product_id = self.kwargs['product_id']
+        return Products.objects.filter(id=dj_product_id)
