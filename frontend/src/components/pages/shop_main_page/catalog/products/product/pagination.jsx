@@ -21,15 +21,12 @@ function Pagination(props) {
     useEffect(async () => {
         debugger;
         if ((props.products.id_categories.length === 0) && (props.products.searchBy === '')) {
-            await props.API_getProducts();
-            props.set_current_page(1);
+            await props.API_getProducts(props.products.currentPage);
 
         } else if (props.products.id_categories.length >= 1) {
-            await props.API_getProducts_byCatID(props.products.id_categories[0]);
-            props.set_current_page(1);
+            await props.API_getProducts_byCatID(props.products.id_categories[0], props.products.currentPage);
         } else if (props.products.searchBy !== '') {
-            await props.API_getProducts_search(props.products.searchBy);
-            props.set_current_page(1);
+            await props.API_getProducts_search(props.products.searchBy, props.products.currentPage);
         }
 
 
@@ -58,7 +55,7 @@ function Pagination(props) {
         if (props.products.searchBy) {
             await props.API_getProducts_search(props.products.searchBy, page);
         } else {
-            await props.API_getProducts(url_arr[1] ? URL + page + '&' + url_arr[1] : URL + page);
+            await props.API_getProducts(url_arr[1] ? page + '&' + url_arr[1] : page);
         }
         props.set_current_page(page);
 

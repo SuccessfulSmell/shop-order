@@ -12,7 +12,7 @@ function SingUp(props) {
     const [error, setError] = useState('');
 
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         let pass_err = '';
         let email_err = '';
         event.preventDefault();
@@ -33,8 +33,9 @@ function SingUp(props) {
         setError(pass_err + email_err);
 
         if (!error) {
-            props.register(username, password);
+            await props.register(username, password);
         }
+
     }
 
     return (
@@ -80,6 +81,9 @@ function SingUp(props) {
                     </div>
                     <div className={styles.error}>
                         {error}
+                        {
+                            props.auth.error ? 'Пользователь с таким email уже существует' : ''
+                        }
                     </div>
                     <button type={'submit'}>Зарегистрироваться</button>
                     <NavLink to={`/auth/login`} className={styles.link}>Уже есть аккаунт</NavLink>
