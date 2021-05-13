@@ -14,6 +14,7 @@ tools_service = ToolsByService()
 etprom_service = EtpromByService()
 PAGINAGION_PAGE_NUMBER = 24
 
+
 @api_view(['GET'])
 def update_products(request):
     """ Update products in database. """
@@ -28,12 +29,24 @@ def update_products(request):
 class ProductsView(generics.ListCreateAPIView):
     """ Returns List of all products. """
     serializer_class = ProductSerializer
-    queryset = Products.objects.all()
     paginator = PageNumberPagination()
     paginator.page_size = PAGINAGION_PAGE_NUMBER
 
     filter_backends = [filters.SearchFilter, ]
     search_fields = ['name', 'article', 'product_id']
+
+    def get_queryset(self):
+        sort = self.request.GET.get('sort', None)
+        if sort == 'max_price':
+            return Products.objects.all().order_by('-price')
+        elif sort == 'min_price':
+            return Products.objects.all().order_by('price')
+        elif sort == 'max_name':
+            return Products.objects.all().order_by('name')
+        elif sort == 'min_name':
+            return Products.objects.all().order_by('-name')
+        else:
+            return Products.objects.all()
 
 
 class CategoriesView(generics.ListCreateAPIView):
@@ -43,11 +56,32 @@ class CategoriesView(generics.ListCreateAPIView):
 
 
 class CategorySearchProducsView(generics.ListCreateAPIView):
-    """ Returns List of all products by ID. """
+    """ Returns List of all products by category ID. """
     serializer_class = ProductSerializer
     paginator = PageNumberPagination()
     paginator.page_size = PAGINAGION_PAGE_NUMBER
 
     def get_queryset(self):
+        sort = self.request.GET.get('sort', None)
         category_id = self.kwargs['category_id']
-        return Products.objects.filter(category__id=category_id)
+        if sort == 'max_price':
+            return Products.objects.filter(category__id=category_id).order_by('-price')
+        elif sort == 'min_price':
+            return Products.objects.filter(category__id=category_id).order_by('price')
+        elif sort == 'max_name':
+            return Products.objects.filter(category__id=category_id).order_by('name')
+        elif sort == 'min_name':
+            return Products.objects.filter(category__id=category_id).order_by('-name')
+        else:
+            return Products.objects.filter(category__id=category_id)
+
+
+class IDSearchProducsView(generics.ListCreateAPIView):
+    """ Returns List of all products by product Django ID. """
+    serializer_class = ProductSerializer
+    paginator = PageNumberPagination()
+    paginator.page_size = PAGINAGION_PAGE_NUMBER
+
+    def get_queryset(self):
+        dj_product_id = self.kwargs['product_id']
+        return Products.objects.filter(id=dj_product_id)
