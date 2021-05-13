@@ -14,8 +14,8 @@ function UserData(props) {
 
                     <span className={styles.filed_value}>
                     {
-                        props.auth.user.email
-                            ? props.auth.user.email
+                        props.auth.user.username
+                            ? props.auth.user.username
                             : 'Нет данных'
                     }
                 </span>
@@ -24,38 +24,38 @@ function UserData(props) {
                         данные</NavLink>
                 </div>
 
-                <div className={styles.field_name}>
-                    <span className={styles.title}>Имя:</span>
-                    <span className={styles.filed_value}>
-                {
-                    props.auth.user.first_name
-                        ? props.auth.user.first_name
-                        : 'Нет данных'
-                }
-                </span>
-                </div>
+                {/*<div className={styles.field_name}>*/}
+                {/*    <span className={styles.title}>Имя:</span>*/}
+                {/*    <span className={styles.filed_value}>*/}
+                {/*{*/}
+                {/*    props.auth.user.first_name*/}
+                {/*        ? props.auth.user.first_name*/}
+                {/*        : 'Нет данных'*/}
+                {/*}*/}
+                {/*</span>*/}
+                {/*</div>*/}
 
-                <div className={styles.field_name}>
-                    <span className={styles.title}>Фамилия:</span>
-                    <span className={styles.filed_value}>
-                {
-                    props.auth.user.last_name
-                        ? props.auth.user.last_name
-                        : 'Нет данных'
-                }
-                </span>
-                </div>
+                {/*<div className={styles.field_name}>*/}
+                {/*    <span className={styles.title}>Фамилия:</span>*/}
+                {/*    <span className={styles.filed_value}>*/}
+                {/*{*/}
+                {/*    props.auth.user.last_name*/}
+                {/*        ? props.auth.user.last_name*/}
+                {/*        : 'Нет данных'*/}
+                {/*}*/}
+                {/*</span>*/}
+                {/*</div>*/}
 
-                <div className={styles.field_name}>
-                    <span className={styles.title}>Логин:</span>
-                    <span className={styles.filed_value}>
-                {
-                    props.auth.user.username
-                        ? props.auth.user.username
-                        : 'Нет данных'
-                }
-                </span>
-                </div>
+                {/*<div className={styles.field_name}>*/}
+                {/*    <span className={styles.title}>Логин:</span>*/}
+                {/*    <span className={styles.filed_value}>*/}
+                {/*{*/}
+                {/*    props.auth.user.username*/}
+                {/*        ? props.auth.user.username*/}
+                {/*        : 'Нет данных'*/}
+                {/*}*/}
+                {/*</span>*/}
+                {/*</div>*/}
 
                 <div className={styles.field_name}>
                     <span className={styles.title}>Пароль:</span>

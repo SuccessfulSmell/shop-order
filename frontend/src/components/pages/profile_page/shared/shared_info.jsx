@@ -10,8 +10,7 @@ function SharedInfo(props) {
             <div className={`container`}>
                 <UserInfo
                     fio={
-                        `${props.auth.user.first_name ? props.auth.user.first_name : 'Нет данных'}
-                        ${props.auth.user.last_name ? props.auth.user.last_name : 'Нет данных'}`
+                        `${props.auth.user.username ? props.auth.user.username : 'Нет данных'}`
                     } data={`20.02.2007`}/>
                 <NavLinks/>
                 <div className={styles.sep_line}></div>

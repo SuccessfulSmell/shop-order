@@ -19,7 +19,6 @@ function Pagination(props) {
     }
 
     useEffect(async () => {
-        debugger;
         if ((props.products.id_categories.length === 0) && (props.products.searchBy === '')) {
             await props.API_getProducts(props.products.currentPage);
 
@@ -33,7 +32,6 @@ function Pagination(props) {
     }, [])
 
     const onClickPagination = async (page) => {
-        debugger;
         if ((current_page === 1) && (last_page > 1)) {
 
             url_arr = props.products.data.next.split('&')
@@ -50,7 +48,6 @@ function Pagination(props) {
 
 
         props.set_fatching(false);
-        debugger;
 
         if (props.products.searchBy) {
             await props.API_getProducts_search(props.products.searchBy, page);

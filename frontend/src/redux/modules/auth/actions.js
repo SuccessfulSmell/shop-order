@@ -29,10 +29,11 @@ export const loadUser = () => async (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: USER_LOADED,
-                payload: res.data.user_data
+                payload: res.data.user_data,
+                payload_orders: res.data.user_orders,
+                payload_discount: res.data.user_discount,
             });
         }).catch(err => {
-            debugger;
             dispatch({
                 type: AUTH_ERROR,
                 payload: err,

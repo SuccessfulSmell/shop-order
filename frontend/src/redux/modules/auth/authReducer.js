@@ -33,6 +33,8 @@ export const authReducer = (state = initialState, action) => {
                     isAuthenticated: true,
                     isLoading: false,
                     user: action.payload,
+                    orders: action.payload_orders,
+                    discount: action.payload_discount,
                 }
             } else {
                 logout()

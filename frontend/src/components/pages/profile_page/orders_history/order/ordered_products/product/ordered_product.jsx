@@ -1,28 +1,62 @@
 import React from 'react';
 import styles from './ordered_product.module.scss'
+import noData from './noData.svg'
 
 function OrderedProduct(props) {
     return (
         <div className={styles.block}>
             <div className={`${styles.field}`}>
-                <img className={`${styles.img}`} src="https://images.by.prom.st/214025372_w640_h640_molotok-06-kg.jpg"
-                     alt=""/>
+                {
+                    props.product.picture
+                        ? <img className={`${styles.img}`} src={props.product.picture} alt=""/>
+                        : <img className={`${styles.img}`} src={noData} alt=""/>
+                }
+
             </div>
 
             <div className={styles.field}>
-                Наименование: <span className={styles.title}>Молоток</span>
+                {
+                    props.product.product_name
+                        ? <div>Наименование:<span
+                            className={styles.title}>{props.product.product_name.split(' ').slice(0, 5)}</span></div>
+
+                        : 'Нет данных'
+                }
+
             </div>
 
             <div className={styles.field}>
-                Количество: <span className={styles.count}>2&nbsp;шт.</span>
+                {
+                    props.product.product_count
+                        ? <div>Количество:<span className={styles.count}>{props.product.product_count}&nbsp;шт.</span>
+                        </div>
+                        : 'Нет данных'
+                }
+
             </div>
 
             <div className={styles.field}>
-                Цена за 1&nbsp;шт. : <span className={styles.price}>15&nbsp;р.</span>
+                {
+                    props.product.price
+                        ? <div>Цена за 1&nbsp;шт.:<span className={styles.price}>{props.product.price}&nbsp;р.</span>
+                        </div>
+                        : 'Нет данных'
+                }
+
             </div>
 
             <div className={styles.field}>
-                Итоговая сумма: <span className={styles.total}>30&nbsp;р.</span>
+                {
+                    props.product.price && props.product.product_count
+                        ? <div>
+                            Итоговая сумма:
+                            <span className={styles.total}>
+                                {props.product.price * props.product.product_count}&nbsp;р.
+                            </span>
+                        </div>
+                        : 'Нет данных'
+                }
+
             </div>
             <div className={styles.sep_line}></div>
         </div>
