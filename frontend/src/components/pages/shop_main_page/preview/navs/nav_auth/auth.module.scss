@@ -2,10 +2,14 @@
 @import "../../../../../shared/main_mixins";
 
 .auth {
+  position: absolute;
+  width: 50%;
+  top: 30px;
+  right: 100px;
   a {
-    @include clear_link($main_color);
+    @include clear_link(white);
     display: block;
-    color: $main_color;
+    color: white;
     opacity: 60%;
     font-size: 23px;
     font-weight: 300;
@@ -30,7 +34,7 @@ $icon_size: 32px;
 
 .login:after {
   content: '';
-  background: url('login.png') 50% 50%/cover no-repeat;
+  background: url('./white/login.png') 50% 50%/cover no-repeat;
   position: absolute;
   right: 0;
   top: 0;
@@ -46,12 +50,16 @@ $icon_size: 32px;
 
 .signup:after {
   content: '';
-  background: url('add-user.png') 50% 50%/cover no-repeat;
+  background: url('./white/add-user.png') 50% 50%/cover no-repeat;
   position: absolute;
   right: 0;
   top: 0;
   width: $icon_size;
   height: $icon_size;
+
+}
+
+@media (max-width: 1200px) {
 
 }
 

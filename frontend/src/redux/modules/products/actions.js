@@ -4,9 +4,11 @@ import {
     GET_PRODUCTS,
     REMOVE_ALL_CATEGORY_FILTER,
     REMOVE_CATEGORY_FILTER,
+    RESET_SORT_VALUE,
     SEARCH_PRODUCTS,
     SET_CURRENT_PAGE,
-    SET_FETCHING
+    SET_FETCHING,
+    SET_SORT_VALUE
 } from "./types";
 
 export const catalog_info = data => ({
@@ -48,4 +50,13 @@ export const search_products = data => ({
 
 export const remove_all_category_filters = () => ({
     type: REMOVE_ALL_CATEGORY_FILTER,
+})
+
+export const set_sort_value = sort_value => ({
+    type: SET_SORT_VALUE,
+    payload: sort_value,
+})
+
+export const reset_sort_value = () => ({
+    type: RESET_SORT_VALUE,
 })

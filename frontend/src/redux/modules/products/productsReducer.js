@@ -4,9 +4,11 @@ import {
     GET_PRODUCTS,
     REMOVE_ALL_CATEGORY_FILTER,
     REMOVE_CATEGORY_FILTER,
+    RESET_SORT_VALUE,
     SEARCH_PRODUCTS,
     SET_CURRENT_PAGE,
-    SET_FETCHING
+    SET_FETCHING,
+    SET_SORT_VALUE
 } from "./types";
 import {remove_all_category_filters} from "./actions";
 
@@ -18,7 +20,8 @@ const initialState = {
     pageCount: 1,
     totalCount: 0,
     isFetched: false,
-    searchBy: ''
+    searchBy: '',
+    sortBy: '',
 }
 
 export const productsReducer = (state = initialState, action) => {
@@ -83,6 +86,18 @@ export const productsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 id_categories: [],
+            }
+
+        case SET_SORT_VALUE:
+            return {
+                ...state,
+                sortBy: action.payload,
+            }
+
+        case RESET_SORT_VALUE:
+            return{
+                ...state,
+                sortBy: '',
             }
 
 

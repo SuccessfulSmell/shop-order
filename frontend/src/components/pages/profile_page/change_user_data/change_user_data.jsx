@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import styles from './change_user_data.module.scss'
 import {connect} from "react-redux";
-import {loadUser} from "../../../../redux/modules/auth/actions";
+import {change_password, loadUser} from "../../../../redux/modules/auth/actions";
 
 function ChangeUserData(props) {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [old_pass, setOld_pass] = useState('');
+    const [old_pass_rep, setOld_pass_rep] = useState('');
     const [email, setEmail] = useState('');
     const [first_name, setFirst_name] = useState('');
     const [last_name, setLast_name] = useState('');
@@ -31,24 +32,24 @@ function ChangeUserData(props) {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        if ((old_pass) && (password)) {
-            if (old_pass !== password) {
+        if ((old_pass) && (old_pass_rep)) {
+            if (old_pass !== old_pass_rep) {
                 pass_err = 'Пароли не совпадают ';
             } else {
                 pass_err = '';
             }
         }
 
-        if (!email.includes('@')) {
-            email_err = 'Недопустимый Email';
-        } else {
-            email_err = '';
-        }
+        // if (!email.includes('@')) {
+        //     email_err = 'Недопустимый Email';
+        // } else {
+        //     email_err = '';
+        // }
 
         setError(pass_err + email_err);
 
         if (!error) {
-
+            props.change_password(old_pass, password)
         }
     }
 
@@ -102,6 +103,14 @@ function ChangeUserData(props) {
                             />
                         </div>
                         <div className={styles.input_fields}>
+                            <div className={styles.input_fields_title}>Подтвердить пароль:</div>
+                            <input
+                                type="password"
+                                onChange={(e) => setOld_pass_rep(e.target.value)}
+                                placeholder={`новый пароль`}
+                            />
+                        </div>
+                        <div className={styles.input_fields}>
                             <div className={styles.input_fields_title}>Ваш новый пароль:</div>
                             <input
                                 type="password"
@@ -132,6 +141,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     loadUser,
+    change_password,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChangeUserData);

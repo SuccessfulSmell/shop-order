@@ -11,7 +11,7 @@ function SharedInfo(props) {
                 <UserInfo
                     fio={
                         `${props.auth.user.username ? props.auth.user.username : 'Нет данных'}`
-                    } data={`20.02.2007`}/>
+                    } data={`20.02.2007`} discount={props.auth.discount}/>
                 <NavLinks/>
                 <div className={styles.sep_line}></div>
             </div>

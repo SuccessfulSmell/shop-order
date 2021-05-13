@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './discount.module.scss'
-import {connect} from "react-redux";
 
 function Discount(props) {
     if (props.discount !== 0) {
@@ -25,12 +24,7 @@ function Discount(props) {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        discount: state.auth.discount
-    }
-}
 
-const mapDispatchToProps = {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Discount);
+
+export default Discount;

@@ -4,6 +4,7 @@
 
 .link_body {
   @include clear_link($main_color);
+  display: block;
   width: 35%;
   height: 70px;
   min-width: 170px;
@@ -17,6 +18,11 @@
 
   transition: background $animation_duration, border $animation_duration, box-shadow $animation_duration;
 }
+
+.link_{
+  @include clear_link($main_color);
+}
+
 
 .link_body:hover {
   background: $main_color;
@@ -41,6 +47,31 @@
   transition: color $animation_duration, text-shadow $animation_duration;
 }
 
+@media (max-width: 1200px) {
+  .link_body {
+    @include clear_link($main_color);
+
+    border: 2px solid white;
+
+  }
+
+  .link_{
+    @include clear_link(white);
+  }
+
+
+  .link_body:hover {
+    background: $main_color;
+    border: 2px solid $main_color;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+
+  }
+
+  .link_text {
+    @include clear_link(white);
+  }
+
+}
 
 @media (max-width: 1399px) {
   .link_text {

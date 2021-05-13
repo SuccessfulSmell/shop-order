@@ -1,5 +1,7 @@
 import {
     AUTH_ERROR,
+    CHANGE_PASSWORD_FAIL,
+    CHANGE_PASSWORD_SUCCESS,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     LOGOUT_SUCCESS,
@@ -103,4 +105,28 @@ export const register = (username, password) => async dispatch => {
                 payload: err,
             })
         });
+}
+
+export const change_password = (old_password, new_password) => async (dispatch, getState) => {
+    const token = getState().auth.token
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const request_body = JSON.stringify({old_password, new_password})
+    if (token) {
+        config.headers['Authorization'] = `JWT ${token}`
+    }
+    await axios.patch(BACK_URL + '/api/user/change-password/', request_body, config)
+        .then(res => {
+            dispatch({type: CHANGE_PASSWORD_SUCCESS,});
+        }).catch(err => {
+            dispatch({
+                type: CHANGE_PASSWORD_FAIL,
+                payload: err,
+            });
+        });
+
 }

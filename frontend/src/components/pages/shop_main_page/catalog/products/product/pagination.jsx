@@ -20,12 +20,12 @@ function Pagination(props) {
 
     useEffect(async () => {
         if ((props.products.id_categories.length === 0) && (props.products.searchBy === '')) {
-            await props.API_getProducts(props.products.currentPage);
+            await props.API_getProducts(props.products.currentPage, props.products.sortBy);
 
         } else if (props.products.id_categories.length >= 1) {
-            await props.API_getProducts_byCatID(props.products.id_categories[0], props.products.currentPage);
+            await props.API_getProducts_byCatID(props.products.id_categories[0], props.products.currentPage, props.products.sortBy);
         } else if (props.products.searchBy !== '') {
-            await props.API_getProducts_search(props.products.searchBy, props.products.currentPage);
+            await props.API_getProducts_search(props.products.searchBy, props.products.currentPage, props.products.sortBy);
         }
 
 
@@ -50,9 +50,9 @@ function Pagination(props) {
         props.set_fatching(false);
 
         if (props.products.searchBy) {
-            await props.API_getProducts_search(props.products.searchBy, page);
+            await props.API_getProducts_search(props.products.searchBy, page, props.products.sortBy);
         } else {
-            await props.API_getProducts(url_arr[1] ? page + '&' + url_arr[1] : page);
+            await props.API_getProducts(url_arr[1] ? page + '&' + url_arr[1] : page, props.products.sortBy);
         }
         props.set_current_page(page);
 

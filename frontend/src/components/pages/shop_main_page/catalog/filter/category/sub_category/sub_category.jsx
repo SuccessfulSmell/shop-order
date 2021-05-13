@@ -2,7 +2,12 @@ import React from 'react';
 import styles from './sub_category.module.scss'
 import {connect} from "react-redux";
 import {API_getProducts_byCatID} from "../../../../../../../redux/modules/products/api/get_products_by_catID";
-import {add_filter_category, set_current_page, set_fatching} from "../../../../../../../redux/modules/products/actions";
+import {
+    add_filter_category,
+    set_current_page,
+    set_fatching,
+    set_sort_value
+} from "../../../../../../../redux/modules/products/actions";
 
 
 function SubCategory(props) {
@@ -13,6 +18,7 @@ function SubCategory(props) {
         categories.push(sub_category)
         props.set_fatching(false)
         await props.API_getProducts_byCatID(categories[0]);
+        set_sort_value('');
         props.set_current_page(1);
         categories = props.products.id_categories
     }
@@ -46,6 +52,7 @@ const mapDispatchToProps = {
     set_current_page,
     set_fatching,
     add_filter_category,
+    set_sort_value,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubCategory);

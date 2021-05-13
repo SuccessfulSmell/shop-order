@@ -6,11 +6,11 @@ import loading_img from "../../shop_main_page/catalog/products/loading.svg";
 
 function ProductInfo(props) {
     const url = window.location.href.split('/')
-    const article = url[url.length - 1]
+    const id = url[url.length - 1]
 
 
     useEffect(() => {
-        props.get_product_by_article(article)
+        props.get_product_by_article(id)
         window.scrollTo(0, 0)
     }, []);
     if (!props.product.isLoading) {
@@ -40,6 +40,11 @@ function ProductInfo(props) {
                 </div>
                 <div className={styles.main_info_title}><span>Технические характеристики: </span></div>
                 <div className={styles.main_info}>
+                    {
+                        props.product.name === 'null'
+                            ? 'Нет названия'
+                            : props.product.name + '\r\n'
+                    }
                     {((props.product.description !== 'null' && props.product.description))
                         ? props.product.description.replaceAll('<br>', '\r\n').replaceAll('&quot;', '"')
                         : 'К сожалению, к этому товару нет описания'

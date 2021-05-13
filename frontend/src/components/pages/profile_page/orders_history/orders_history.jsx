@@ -1,6 +1,8 @@
 import React from 'react';
 import Order from "./order/order";
 import {connect} from "react-redux";
+import empty from './empty_cart.svg'
+import styles from './order_history.module.scss'
 
 function OrdersHistory(props) {
     return (
@@ -16,7 +18,11 @@ function OrdersHistory(props) {
                             orded_products={order.order_products}
                         />
                     ))
-                    : ''
+                    : <div className={styles.empty_history}>
+                        <span>Вы у нас ещё ничего не заказывали</span>
+                        <img src={empty} alt=""/>
+
+                    </div>
                 : ''
             }
         </div>

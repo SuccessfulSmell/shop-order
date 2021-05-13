@@ -1,5 +1,7 @@
 import {
     AUTH_ERROR,
+    CHANGE_PASSWORD_FAIL,
+    CHANGE_PASSWORD_SUCCESS,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     LOGOUT_SUCCESS,
@@ -48,6 +50,8 @@ export const authReducer = (state = initialState, action) => {
         case LOGIN_FAIL:
         case SIGN_UP_FAIL:
         case AUTH_ERROR:
+        case CHANGE_PASSWORD_SUCCESS:
+        case CHANGE_PASSWORD_FAIL:
         case LOGOUT_SUCCESS:
             localStorage.removeItem('token');
             return {
@@ -68,7 +72,6 @@ export const authReducer = (state = initialState, action) => {
                 isLoading: false,
                 error: null,
             }
-
         default:
             return state
     }

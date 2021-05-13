@@ -19,7 +19,7 @@ function Products(props) {
 
     return (
         <div className={styles.products}>
-
+            <a name="catalog"> </a>
             <div className={styles.filters}>
                 <AppliedFilters/>
                 <Sorts/>
@@ -33,8 +33,8 @@ function Products(props) {
                     ? (props.products.data.results.length > 0)
                         ? props.products.data.results.map(product =>
                             <Product
-                                key={product.product_id}
-                                id={product.product_id}
+                                key={product.id}
+                                id={product.id}
                                 title={product.name}
                                 desc={product.description}
                                 picture={product.picture}
