@@ -54,7 +54,7 @@ class Providers(models.Model):
 class Products(models.Model):
     name = models.CharField(verbose_name='Название товара', max_length=100, default='', blank=True, null=True)
     article = models.CharField(verbose_name='article', max_length=15, default='', blank=True, null=True)
-    price = models.CharField(verbose_name='Цена', max_length=10, default='', blank=True, null=True)
+    price = models.FloatField(verbose_name='Цена', default=0, blank=True, null=True)
     price_rec = models.CharField(verbose_name='Rec цена', max_length=10, default='', blank=True, null=True)
     price_opt = models.CharField(verbose_name='Оптовая цена', max_length=10, default='', blank=True, null=True)
     currency = models.CharField(verbose_name='Валюта', max_length=10, default='', blank=True, null=True)
@@ -71,5 +71,5 @@ class Products(models.Model):
 
     class Meta:
         db_table = 'products'
-        verbose_name = 'Продукты'
-        verbose_name_plural = 'Продукты'
+        verbose_name = 'Товары'
+        verbose_name_plural = 'Товары'
