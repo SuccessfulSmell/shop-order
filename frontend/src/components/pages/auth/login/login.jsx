@@ -8,11 +8,13 @@ import {connect} from "react-redux";
 function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        props.login(username, password);
+        await props.login(username, password);
     }
 
 
@@ -46,7 +48,12 @@ function Login(props) {
                             placeholder={`Ваш пароль`}
                         />
                     </div>
-
+                    <div className={styles.error}>
+                        {error}
+                        {
+                            props.auth.error ? 'Неверный логин или пароль' : ''
+                        }
+                    </div>
                     <button type={'submit'}>Войти</button>
                     <NavLink to={`/auth/signUp`} className={styles.link}>Нет аккаунта?</NavLink>
                 </div>

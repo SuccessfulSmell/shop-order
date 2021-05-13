@@ -9,6 +9,7 @@ function Category(props) {
 
     useEffect(() => {
         props.API_getCategories();
+
     }, [])
 
     return (

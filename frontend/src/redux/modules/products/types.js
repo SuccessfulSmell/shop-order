@@ -9,3 +9,6 @@ export const SET_FETCHING = `${moduleName}/SET_FETCHING`
 export const REMOVE_CATEGORY_FILTER = `${moduleName}/REMOVE_CATEGORY_FILTER`
 export const SEARCH_PRODUCTS = `${moduleName}/SEARCH_PRODUCTS`
 export const REMOVE_ALL_CATEGORY_FILTER = `${moduleName}/REMOVE_ALL_CATEGORY_FILTER`
+export const SET_SORT_VALUE = `${moduleName}/SET_SORT_VALUE`
+export const RESET_SORT_VALUE = `${moduleName}/RESET_SORT_VALUE`
+

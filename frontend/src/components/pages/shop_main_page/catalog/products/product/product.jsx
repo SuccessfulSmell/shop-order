@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 function Product(props) {
     return (
         <div className={styles.product}>
-            <NavLink to={`/product/${props.article}`} className={styles.link_product}>
+            <NavLink to={`/product/${props.id}`} className={styles.link_product}>
                 <div>
                     {props.picture !== 'null'
                         ? <img className={styles.img} src={props.picture} alt=""/>

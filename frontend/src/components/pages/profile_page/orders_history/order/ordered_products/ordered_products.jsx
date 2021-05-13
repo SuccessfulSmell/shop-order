@@ -6,11 +6,16 @@ import Total from "./total/total";
 function OrderedProducts(props) {
     return (
         <div className={styles.wrapper}>
-            <OrderedProduct/>
-            <OrderedProduct/>
-            <OrderedProduct/>
-            <Total/>
-
+            {
+                (props.orded_products)
+                    ? (props.orded_products.length > 0)
+                    ? props.orded_products.map((product) => (
+                        <OrderedProduct key={props.order_id} product={product}/>
+                    ))
+                    : ''
+                    : ''
+            }
+            <Total key={props.id} total_price={props.total_price}/>
         </div>
     );
 }

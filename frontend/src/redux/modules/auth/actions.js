@@ -1,5 +1,7 @@
 import {
     AUTH_ERROR,
+    CHANGE_PASSWORD_FAIL,
+    CHANGE_PASSWORD_SUCCESS,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     LOGOUT_SUCCESS,
@@ -29,10 +31,15 @@ export const loadUser = () => async (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: USER_LOADED,
-                payload: res.data
+                payload: res.data.user_data,
+                payload_orders: res.data.user_orders,
+                payload_discount: res.data.user_discount,
             });
         }).catch(err => {
-            dispatch({type: AUTH_ERROR})
+            dispatch({
+                type: AUTH_ERROR,
+                payload: err,
+            })
         });
 }
 
@@ -51,7 +58,10 @@ export const login = (username, password) => async dispatch => {
                 payload: res.data
             });
         }).catch(err => {
-            dispatch({type: LOGIN_FAIL})
+            dispatch({
+                type: LOGIN_FAIL,
+                payload: err,
+            })
         });
 }
 
@@ -90,6 +100,33 @@ export const register = (username, password) => async dispatch => {
                 payload: res.data
             });
         }).catch(err => {
-            dispatch({type: SIGN_UP_FAIL})
+            dispatch({
+                type: SIGN_UP_FAIL,
+                payload: err,
+            })
         });
+}
+
+export const change_password = (old_password, new_password) => async (dispatch, getState) => {
+    const token = getState().auth.token
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const request_body = JSON.stringify({old_password, new_password})
+    if (token) {
+        config.headers['Authorization'] = `JWT ${token}`
+    }
+    await axios.patch(BACK_URL + '/api/user/change-password/', request_body, config)
+        .then(res => {
+            dispatch({type: CHANGE_PASSWORD_SUCCESS,});
+        }).catch(err => {
+            dispatch({
+                type: CHANGE_PASSWORD_FAIL,
+                payload: err,
+            });
+        });
+
 }

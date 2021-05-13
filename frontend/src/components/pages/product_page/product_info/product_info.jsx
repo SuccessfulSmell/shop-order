@@ -6,27 +6,29 @@ import loading_img from "../../shop_main_page/catalog/products/loading.svg";
 
 function ProductInfo(props) {
     const url = window.location.href.split('/')
-    const article = url[url.length - 1]
+    const id = url[url.length - 1]
 
 
     useEffect(() => {
-        props.get_product_by_article(article)
+        props.get_product_by_article(id)
+        window.scrollTo(0, 0)
     }, []);
     if (!props.product.isLoading) {
         return (
             <div className={styles.product_info}>
                 <div className={styles.title_content}>
                     <div className={styles.img_wrapper}>
-                        <img className={styles.img} src={props.product.picture}
-                             alt=""/>
+                        <img className={styles.img} src={props.product.picture} alt=""/>
                     </div>
                     <div className={styles.title_text}>
                         <div className={styles.name}>
                             <span>{props.product.name.replaceAll('<br>', '\r\n').replaceAll('&quot;', '"').split(' ').slice(0, 3).join(' ')}</span>
                         </div>
-                        <div
-                            className={styles.desc}>{props.product.description.replaceAll('<br>', '\r\n').replaceAll('&quot;', '"').slice(0, 220)}.
-                            . .
+                        <div className={styles.desc}>
+                            {((props.product.description !== 'null' && props.product.description))
+                                ? props.product.description.replaceAll('<br>', '\r\n').replaceAll('&quot;', '"').slice(0, 220)
+                                : 'К сожалению, к этому товару нет описания'
+                            }
                         </div>
 
                         <div className={styles.price_block}>
@@ -38,7 +40,16 @@ function ProductInfo(props) {
                 </div>
                 <div className={styles.main_info_title}><span>Технические характеристики: </span></div>
                 <div className={styles.main_info}>
-                    {props.product.description.replaceAll('<br>', '\r\n').replaceAll('&quot;', '"')}
+                    {
+                        props.product.name === 'null'
+                            ? 'Нет названия'
+                            : props.product.name + '\r\n'
+                    }
+                    {((props.product.description !== 'null' && props.product.description))
+                        ? props.product.description.replaceAll('<br>', '\r\n').replaceAll('&quot;', '"')
+                        : 'К сожалению, к этому товару нет описания'
+                    }
+
                 </div>
             </div>
         );

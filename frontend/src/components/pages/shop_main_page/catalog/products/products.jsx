@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import styles from './products.module.scss'
 import img_warning from './noData.svg'
@@ -12,11 +12,14 @@ import {set_current_page, set_fatching} from "../../../../../redux/modules/produ
 import Pagination from "./product/pagination";
 
 function Products(props) {
+    useEffect(() => {
+
+    }, []);
 
 
     return (
         <div className={styles.products}>
-
+            <a name="catalog"> </a>
             <div className={styles.filters}>
                 <AppliedFilters/>
                 <Sorts/>
@@ -30,8 +33,8 @@ function Products(props) {
                     ? (props.products.data.results.length > 0)
                         ? props.products.data.results.map(product =>
                             <Product
-                                key={product.product_id}
-                                id={product.product_id}
+                                key={product.id}
+                                id={product.id}
                                 title={product.name}
                                 desc={product.description}
                                 picture={product.picture}
