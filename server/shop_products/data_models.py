@@ -6,7 +6,6 @@ class Product(BaseModel):
     picture: str
     description: str
     article: str
-    # price: str
     price: float
     price_rec: str = Field(alias='priceRec')
     price_opt: str = Field(alias='priceOpt')

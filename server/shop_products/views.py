@@ -10,9 +10,10 @@ from .service import ToolsByService, EtpromByService
 from .models import Categories, Products
 from .serializers import ProductSerializer, CategoriesSerializer
 
+PAGINAGION_PAGE_NUMBER = 24
+
 tools_service = ToolsByService()
 etprom_service = EtpromByService()
-PAGINAGION_PAGE_NUMBER = 24
 
 
 @api_view(['GET'])
@@ -20,6 +21,7 @@ def update_products(request):
     """ Update products in database. """
     tools_response = tools_service.update_data()
     etprom_response = etprom_service.update_data()
+    etprom_service.delete_defective_categories()
     response = {'tools.by': tools_response, 'etprom.by': etprom_response}
     if 'error_msg' in tools_response or 'error_msg' in etprom_response:
         return Response(response, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
