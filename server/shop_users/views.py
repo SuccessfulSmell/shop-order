@@ -16,7 +16,8 @@ from .service import add_new_order
 def new_order(request):
     serializer = UserSerializer(request.user)
     username = serializer.data.get('username', '')
-    response = add_new_order(username=username, products=request.data.get('products', []))
+    products = request.data.get('products', [])
+    response = add_new_order(username=username, request=request.data, products=products)
     return Response(response, status=status.HTTP_200_OK)
 
 
