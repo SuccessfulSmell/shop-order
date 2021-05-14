@@ -1,6 +1,6 @@
 from .models import SiteSettings
 from .service import get_api_root
-from .serializers import ContactSerializer
+from .serializers import ContactSerializer, SalesSerializer, SubCategory
 
 from rest_framework import status
 from rest_framework.response import Response
@@ -19,3 +19,9 @@ class SiteInfoView(ListAPIView):
     """ Returns List of SiteInfo. """
     serializer_class = ContactSerializer
     queryset = SiteSettings.objects.all()
+
+
+class SalesInfoView(ListAPIView):
+    """ Returns List of all sales in shop. """
+    serializer_class = SalesSerializer
+    queryset = SubCategory.objects.exclude(discount=0)
