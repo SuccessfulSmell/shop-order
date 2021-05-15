@@ -16,6 +16,7 @@
   },
   "Личный кабинет": {
     "Добавить новый заказ": "http://127.0.0.1:8000/api/user/add_order/",
-    "Изменить пароль": "http://127.0.0.1:8000/api/user/change-password/"
+    "Изменить пароль": "http://127.0.0.1:8000/api/user/change-password/",
+    "Изменить пользователя": "http://127.0.0.1:8000/api/user/update_profile/<pk>/"
   }
 }

@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 
 from shop_auth.serializers import UserSerializer
-from .serializers import ChangePasswordSerializer
+from .serializers import ChangePasswordSerializer, UpdateUserSerializer
 from .service import add_new_order
 
 
@@ -48,3 +48,9 @@ class ChangePasswordView(generics.UpdateAPIView):
             }
             return Response(response)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UpdateProfileView(generics.UpdateAPIView):
+    queryset = User.objects.all()
+    permission_classes = (IsAuthenticated,)
+    serializer_class = UpdateUserSerializer
