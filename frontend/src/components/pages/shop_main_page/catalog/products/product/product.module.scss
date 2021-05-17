@@ -44,7 +44,35 @@
 }
 
 .cart {
+  position: relative;
   float: right;
+
+  div{
+    z-index: 1000;
+    padding: 30px;
+    margin: 10px;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    transition: all $animation_duration;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+  }
+
+  .popup_success{
+    background-color: #c4ffc4;
+  }
+
+  .popup_fail{
+
+    background-color: rgb(253, 234, 234);
+  }
+
+  .popup_unAuth{
+    background-color: rgb(253, 234, 234);
+  }
 }
 
 .img_cart {
@@ -52,6 +80,7 @@
   height: 32px;
   float: right;
   margin-right: 25px;
+  cursor: pointer;
 }
 
 .title_text {
@@ -85,6 +114,8 @@
   height: 2px;
   background-color: $main_color;
 }
+
+
 
 
 @media (max-width: 357px) {

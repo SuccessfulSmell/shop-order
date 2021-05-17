@@ -23,7 +23,11 @@ function OrdersHistory(props) {
                         <img src={empty} alt=""/>
 
                     </div>
-                : ''
+                : <div className={styles.empty_history}>
+                    <span>Вы у нас ещё ничего не заказывали</span>
+                    <img src={empty} alt=""/>
+
+                </div>
             }
         </div>
     );

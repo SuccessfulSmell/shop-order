@@ -4,7 +4,7 @@
 .auth {
   position: absolute;
   width: 50%;
-  top: 30px;
+  top: 50px;
   right: 100px;
   a {
     @include clear_link(white);
@@ -84,7 +84,7 @@ $icon_size: 32px;
   }
 
   .auth {
-    div {
+    a {
       font-size: 16px;
 
     }

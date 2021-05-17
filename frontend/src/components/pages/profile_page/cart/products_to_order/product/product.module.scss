@@ -15,9 +15,46 @@
 
 .remove {
   background: url("buttons/clean.png") 50% 50%/cover no-repeat;
+  cursor: pointer;
   width: 32px;
   height: 32px;
   opacity: 50%;
+
+
+  transition: opacity $animation_duration;
+}
+
+.remove:hover{
+  opacity: 100%;
+}
+
+.price_plus{
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: absolute;
+  top: -20px;
+  transition: color $animation_duration;
+}
+
+.price_plus:hover{
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.price_minus:hover{
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.price_minus{
+  color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: absolute;
+  bottom: -20px;
+  left: 2px;
+  transition: color $animation_duration;
+}
+
+.price_block{
+  position: relative;
 }
 
 .product_info {

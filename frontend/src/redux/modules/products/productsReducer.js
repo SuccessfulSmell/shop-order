@@ -1,9 +1,15 @@
 import {
     ADD_CATEGORY_FILTER,
+    ADD_PRODUCT_IN_CART_FAIL,
+    ADD_PRODUCT_IN_CART_SUCCESS,
+    DEC_PRODUCT_SUCCESS,
     FILTER_PRODUCTS,
     GET_PRODUCTS,
+    INC_PRODUCT_SUCCESS,
     REMOVE_ALL_CATEGORY_FILTER,
     REMOVE_CATEGORY_FILTER,
+    REMOVE_PRODUCT_FROM_CART_FAIL,
+    REMOVE_PRODUCT_FROM_CART_SUCCESS,
     RESET_SORT_VALUE,
     SEARCH_PRODUCTS,
     SET_CURRENT_PAGE,
@@ -22,6 +28,15 @@ const initialState = {
     isFetched: false,
     searchBy: '',
     sortBy: '',
+    total_cart:
+        JSON.parse(localStorage.getItem('products_in_cart')).length>0
+            ? JSON.parse(localStorage.getItem('products_in_cart'))
+                .map((product) => (product.price * product.count)).reduce((a, b) => a + b)
+            : 0,
+    products_in_cart: localStorage.getItem('products_in_cart')
+        ? JSON.parse(localStorage.getItem('products_in_cart'))
+        : [{}],
+    error: '',
 }
 
 export const productsReducer = (state = initialState, action) => {
@@ -95,9 +110,50 @@ export const productsReducer = (state = initialState, action) => {
             }
 
         case RESET_SORT_VALUE:
-            return{
+            return {
                 ...state,
                 sortBy: '',
+            }
+
+        case ADD_PRODUCT_IN_CART_SUCCESS:
+            let total_add = 0
+            action.payload.map((product) => {
+                total_add += product.price * product.count
+            })
+            return {
+                ...state,
+                products_in_cart: action.payload,
+                total_cart: total_add.toFixed(2),
+            }
+
+        case ADD_PRODUCT_IN_CART_FAIL:
+        case REMOVE_PRODUCT_FROM_CART_FAIL:
+            return {
+                ...state,
+                error: action.payload,
+            }
+
+        case REMOVE_PRODUCT_FROM_CART_SUCCESS:
+            let total_rem = 0
+            action.payload.map((product) => {
+                total_rem += product.price * product.count
+            })
+            return {
+                ...state,
+                products_in_cart: action.payload,
+                total_cart: total_rem.toFixed(2),
+            }
+
+        case INC_PRODUCT_SUCCESS:
+        case DEC_PRODUCT_SUCCESS:
+            let total_inc = 0
+            action.payload.map((product) => {
+                total_inc += product.price * product.count
+            })
+            return {
+                ...state,
+                products_in_cart: action.payload,
+                total_cart: total_inc.toFixed(2),
             }
 
 

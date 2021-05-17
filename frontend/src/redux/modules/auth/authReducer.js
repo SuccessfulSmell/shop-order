@@ -19,6 +19,8 @@ const initialState = {
     isLoading: false,
     user: null,
     error: null,
+    redirect: false,
+    discount: 0,
 }
 
 export const authReducer = (state = initialState, action) => {
