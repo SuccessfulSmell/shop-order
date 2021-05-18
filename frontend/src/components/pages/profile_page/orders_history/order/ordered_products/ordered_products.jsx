@@ -2,8 +2,16 @@ import React from 'react';
 import styles from './ordered_products.module.scss'
 import OrderedProduct from "./product/ordered_product";
 import Total from "./total/total";
+import {connect} from "react-redux";
+import {loadUser} from "../../../../../../redux/modules/auth/actions";
 
 function OrderedProducts(props) {
+    if (props.auth.isLoading){
+        return (
+            <div> </div>
+        )
+    } else {
+
     return (
         <div className={styles.wrapper}>
             {
@@ -17,7 +25,18 @@ function OrderedProducts(props) {
             }
             <Total key={props.id} total_price={props.total_price}/>
         </div>
-    );
+    );}
 }
 
-export default OrderedProducts;
+const mapStateToProps = state => {
+    return {
+        products: state.products,
+        auth: state.auth,
+    }
+}
+
+const mapDispatchToProps = {
+    loadUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderedProducts);

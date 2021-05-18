@@ -5,7 +5,6 @@ import Select from "react-select";
 import Products from "./products/products";
 import {add_order} from "../../../../../redux/modules/products/actions";
 import {loadUser} from "../../../../../redux/modules/auth/actions";
-import {Redirect} from "react-router-dom";
 
 function NewOrder(props) {
     const [email, setEmail] = useState('');
@@ -19,9 +18,10 @@ function NewOrder(props) {
 
     let products = JSON.parse(localStorage.getItem('products_in_cart'))
     let total
+    debugger;
     props.auth.discount > 0
-        ? total = ((1 - (props.auth.discount / 100)) * props.products.total_cart).toFixed(2)
-        : total = props.products.total_cart.toFixed(2)
+        ? total = ((1 - (props.auth.discount / 100)) * parseFloat(props.products.total_cart)).toFixed(2)
+        : total = parseFloat(props.products.total_cart).toFixed(2)
 
 
     const options = [
@@ -49,6 +49,7 @@ function NewOrder(props) {
 
         if (!error_text) {
             props.add_order(products, total, email, first_name, last_name, comment, address, phone, pay_type)
+            window.location.href = '/profile/order_history'
         }
 
     }
@@ -64,11 +65,7 @@ function NewOrder(props) {
 
     return (
         <div className={`container`}>
-            {
-                props.products.products_in_cart.length > 0
-                    ? ''
-                    : <Redirect to={'/profile/order_history'}/>
-            }
+
             <Products/>
             <form onSubmit={(e) => submitHandler(e)} className={styles.form}>
                 <div className={styles.main_info}>

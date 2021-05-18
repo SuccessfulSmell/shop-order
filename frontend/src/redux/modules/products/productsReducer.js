@@ -164,7 +164,7 @@ export const productsReducer = (state = initialState, action) => {
                 total_cart: total_inc.toFixed(2),
             }
         case ADD_ORDER_SUCCESS:
-            localStorage.removeItem('products_in_cart')
+            localStorage.removeItem('products_in_cart');
             return {
                 ...state,
                 products_in_cart: []

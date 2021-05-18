@@ -77,4 +77,4 @@ const mapDispatchToProps = {
     inc_product_cart,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default  connect(mapStateToProps, mapDispatchToProps)(Product);

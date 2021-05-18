@@ -3,6 +3,7 @@ import Order from "./order/order";
 import {connect} from "react-redux";
 import empty from './empty_cart.svg'
 import styles from './order_history.module.scss'
+import {loadUser} from "../../../../redux/modules/auth/actions";
 
 function OrdersHistory(props) {
     return (
@@ -39,6 +40,8 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+    loadUser,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrdersHistory);

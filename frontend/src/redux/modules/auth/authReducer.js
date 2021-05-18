@@ -56,6 +56,7 @@ export const authReducer = (state = initialState, action) => {
         case CHANGE_PASSWORD_FAIL:
         case LOGOUT_SUCCESS:
             localStorage.removeItem('token');
+            localStorage.removeItem('products_in_cart');
             return {
                 ...state,
                 token: null,
@@ -66,6 +67,7 @@ export const authReducer = (state = initialState, action) => {
             }
         case LOGIN_SUCCESS:
         case SIGN_UP_SUCCESS:
+            localStorage.removeItem('products_in_cart');
             localStorage.setItem('token', action.payload.token);
             return {
                 ...state,
