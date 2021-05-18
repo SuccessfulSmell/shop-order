@@ -23,6 +23,7 @@ function Products(props) {
                             name={product.name}
                             desc={product.desc}
                             price={product.price}
+                            discount={product.discount}
                             remove_func={props.remove_product_from_cart}
                         />)
                     : <div className={styles.warning}>

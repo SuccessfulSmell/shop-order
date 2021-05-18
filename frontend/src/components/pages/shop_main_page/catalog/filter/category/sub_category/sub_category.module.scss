@@ -58,6 +58,20 @@ details[open] {
     transform: rotate(90deg);
   }
 }
+.sales{
+  position: relative;
+
+}
+
+.sales:after{
+  position: absolute;
+  content: '';
+  top: -5px;
+  right: -18px;
+  background: url("discount.svg") 50% 50%/cover no-repeat;
+  width: 16px;
+  height: 16px;
+}
 
 @keyframes sweep {
   0% {

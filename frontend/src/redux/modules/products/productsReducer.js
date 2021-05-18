@@ -34,7 +34,7 @@ const initialState = {
         localStorage.getItem('products_in_cart')
             ? JSON.parse(localStorage.getItem('products_in_cart')).length > 0
             ? JSON.parse(localStorage.getItem('products_in_cart'))
-                .map((product) => (product.price * product.count)).reduce((a, b) => a + b)
+                .map((product) => (product.price * product.count * (1 - (product.discount/100).toFixed(2)))).reduce((a, b) => a + b)
             : 0
             : 0,
 
@@ -126,7 +126,7 @@ export const productsReducer = (state = initialState, action) => {
         case ADD_PRODUCT_IN_CART_SUCCESS:
             let total_add = 0
             action.payload.map((product) => {
-                total_add += product.price * product.count
+                total_add += product.price * product.count  * (1 - (product.discount/100).toFixed(2))
             })
             return {
                 ...state,
@@ -144,7 +144,7 @@ export const productsReducer = (state = initialState, action) => {
         case REMOVE_PRODUCT_FROM_CART_SUCCESS:
             let total_rem = 0
             action.payload.map((product) => {
-                total_rem += product.price * product.count
+                total_rem += product.price * product.count * (1 - (product.discount/100).toFixed(2))
             })
             return {
                 ...state,
@@ -156,7 +156,7 @@ export const productsReducer = (state = initialState, action) => {
         case DEC_PRODUCT_SUCCESS:
             let total_inc = 0
             action.payload.map((product) => {
-                total_inc += product.price * product.count
+                total_inc += product.price * product.count * (1 - (product.discount/100).toFixed(2))
             })
             return {
                 ...state,

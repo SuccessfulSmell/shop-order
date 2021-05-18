@@ -124,3 +124,24 @@
   }
 
 }
+
+.sales{
+  position: relative;
+  color: rgba(0, 0, 0, 0.4) !important;
+
+  span{
+    color: red;
+  }
+}
+
+.sales:before{
+  position: absolute;
+  content: '';
+  width: 30%;
+  height: 32px;
+  opacity: 100%;
+  transform: rotate(30deg);
+  top: -3px;
+  left: 2px;
+  background: url('../line.svg') 50% 50%/cover no-repeat;
+}

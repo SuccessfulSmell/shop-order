@@ -41,6 +41,7 @@ function Products(props) {
                                 category_name={product.category_name}
                                 price={product.price}
                                 article={product.article}
+                                discount={product.discount}
                             />)
                         : <div className={styles.warning}>
                             <div>Мы не смогли ничего найти по вашему запросу</div>
