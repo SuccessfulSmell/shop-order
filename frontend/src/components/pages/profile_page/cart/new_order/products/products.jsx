@@ -31,10 +31,10 @@ function Products(props) {
             }
             <div className={styles.total_price}>
                 <div className={styles.total_price_title}>Итоговая стоимость: <br/> <span
-                    className={styles.price_text}>{props.products.total_cart}&nbsp;р.</span></div>
+                    className={styles.price_text}>{parseFloat(props.products.total_cart).toFixed(2)}&nbsp;р.</span></div>
                 {props.auth.discount > 0
                     ? <div className={styles.total_price_discount}>С учетом вашей скидки: <br/> <span
-                        className={styles.price_text}>{((1 - (props.auth.discount / 100)) * props.products.total_cart).toFixed(2)}&nbsp;р.</span>
+                        className={styles.price_text}>{((1 - (props.auth.discount / 100)) * parseFloat(props.products.total_cart)).toFixed(2)}&nbsp;р.</span>
                     </div>
                     : ''
                 }

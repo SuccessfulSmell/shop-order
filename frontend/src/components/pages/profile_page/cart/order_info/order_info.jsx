@@ -11,7 +11,7 @@ function OrderInfo(props) {
             <div className={styles.total_block}>
                 <div className={`${styles.total_item}`}>
                     <span>Сумма заказа:</span> <br/>
-                    <span className={styles.price}>{props.products.total_cart}</span>
+                    <span className={styles.price}>{parseFloat(props.products.total_cart).toFixed(2)}</span>
                 </div>
                 {props.auth.discount
                     ? <div className={`${styles.total_item}`}>
@@ -24,7 +24,7 @@ function OrderInfo(props) {
                 <div className={`${styles.total_item}`}>
                     <span>Итог: </span> <br/>
                     <span
-                        className={styles.price}>{(props.products.total_cart * (1 - (props.auth.discount / 100))).toFixed(2)}</span>
+                        className={styles.price}>{(parseFloat(props.products.total_cart) * (1 - (props.auth.discount / 100))).toFixed(2)}</span>
                 </div>
                 <NavLink className={styles.order_btn} to={'/profile/order'}>
                     <div>
