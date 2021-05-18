@@ -1,8 +1,6 @@
 import {search_products} from "../actions";
 
-let initialPage = `http://127.0.0.1:8000/api/products/get_products/?search=`
-
-export const API_getProducts_search = (slug = '', page = '1', sort_by='') => async (dispatch) => {
+export const API_getProducts_search = (slug = '', page = '1', sort_by = '') => async (dispatch) => {
     let url = `http://127.0.0.1:8000/api/products/get_products/?search=${slug}&page=${page}&sort=${sort_by}`
     try {
         await fetch(url)

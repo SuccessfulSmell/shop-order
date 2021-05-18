@@ -1,5 +1,7 @@
 import {
     ADD_CATEGORY_FILTER,
+    ADD_ORDER_FAIL,
+    ADD_ORDER_SUCCESS,
     ADD_PRODUCT_IN_CART_FAIL,
     ADD_PRODUCT_IN_CART_SUCCESS,
     DEC_PRODUCT_SUCCESS,
@@ -29,13 +31,19 @@ const initialState = {
     searchBy: '',
     sortBy: '',
     total_cart:
-        JSON.parse(localStorage.getItem('products_in_cart')).length>0
+        localStorage.getItem('products_in_cart')
+            ? JSON.parse(localStorage.getItem('products_in_cart')).length > 0
             ? JSON.parse(localStorage.getItem('products_in_cart'))
                 .map((product) => (product.price * product.count)).reduce((a, b) => a + b)
+            : 0
             : 0,
-    products_in_cart: localStorage.getItem('products_in_cart')
-        ? JSON.parse(localStorage.getItem('products_in_cart'))
-        : [{}],
+
+    products_in_cart:
+        localStorage.getItem('products_in_cart')
+            ? localStorage.getItem('products_in_cart')
+            ? JSON.parse(localStorage.getItem('products_in_cart'))
+            : [{}]
+            : [{}],
     error: '',
 }
 
@@ -155,7 +163,16 @@ export const productsReducer = (state = initialState, action) => {
                 products_in_cart: action.payload,
                 total_cart: total_inc.toFixed(2),
             }
-
+        case ADD_ORDER_SUCCESS:
+            localStorage.removeItem('products_in_cart')
+            return {
+                ...state,
+                products_in_cart: []
+            }
+        case ADD_ORDER_FAIL:
+            return {
+                ...state
+            }
 
         default:
             return state;

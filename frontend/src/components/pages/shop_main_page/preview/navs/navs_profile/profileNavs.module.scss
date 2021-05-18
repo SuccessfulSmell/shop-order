@@ -6,6 +6,7 @@
   width: 50%;
   top: 50px;
   right: 100px;
+
   a {
     @include clear_link(white);
     display: block;
@@ -62,7 +63,6 @@ $icon_size: 32px;
 .logout {
   color: rgba(255, 0, 0, 0.5) !important;
 }
-
 
 
 @media (max-width: 991px) {

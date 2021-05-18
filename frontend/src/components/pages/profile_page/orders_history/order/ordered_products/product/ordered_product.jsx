@@ -51,14 +51,14 @@ function OrderedProduct(props) {
                         ? <div>
                             Итоговая сумма:
                             <span className={styles.total}>
-                                {props.product.price * props.product.product_count}&nbsp;р.
+                                {(props.product.price * props.product.product_count).toFixed(2)}&nbsp;р.
                             </span>
                         </div>
                         : 'Нет данных'
                 }
 
             </div>
-            <div className={styles.sep_line}></div>
+            <div className={styles.sep_line}> </div>
         </div>
     );
 }

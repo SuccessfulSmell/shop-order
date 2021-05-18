@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './catalog_btn.module.scss';
 
 
-function CatalogBtn(props) {
+function CatalogBtn() {
     return (
         <a className={styles.link_} href="#catalog">
-        <div className={styles.link_body}>
-            <div className={styles.link_text}>Каталог</div>
-        </div>
+            <div className={styles.link_body}>
+                <div className={styles.link_text}>Каталог</div>
+            </div>
         </a>
     );
 }

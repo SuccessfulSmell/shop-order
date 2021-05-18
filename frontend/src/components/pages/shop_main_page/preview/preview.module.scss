@@ -8,9 +8,10 @@
   top: 0;
   width: 40%;
   height: 110vh;
-  min-height: 400px ;
+  min-height: 400px;
   background: linear-gradient(180.02deg, rgba(78, 93, 228, 0) 0.02%, #4E5DE4 0.03%, rgba(78, 93, 228, 0.5) 64.56%, rgba(78, 93, 228, 0) 99.95%);
-  img{
+
+  img {
     position: absolute;
     top: 100px;
     right: 100px;
@@ -45,14 +46,16 @@
 .auth_block {
 
 }
+
 @media (max-width: 1200px) {
   .bg {
     width: 100%;
   }
 }
+
 @media (max-width: 767px) {
   .bg {
-    img{
+    img {
       top: 140px;
       right: 20px;
     }
@@ -73,9 +76,10 @@
     flex-direction: column;
     align-items: center;
   }
-  .bg{
+  .bg {
     @include center_block();
-    img{
+
+    img {
       top: 100px;
       margin-right: 60px;
       position: relative;

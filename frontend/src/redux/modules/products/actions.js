@@ -1,5 +1,7 @@
 import {
     ADD_CATEGORY_FILTER,
+    ADD_ORDER_FAIL,
+    ADD_ORDER_SUCCESS,
     ADD_PRODUCT_IN_CART_SUCCESS,
     DEC_PRODUCT_SUCCESS,
     FILTER_PRODUCTS,
@@ -14,6 +16,9 @@ import {
     SET_FETCHING,
     SET_SORT_VALUE
 } from "./types";
+import axios from 'axios';
+import {BACK_URL} from "../../BACK_URL";
+import {loadUser} from "../auth/actions";
 
 export const catalog_info = data => ({
     type: GET_PRODUCTS,
@@ -65,7 +70,7 @@ export const reset_sort_value = () => ({
     type: RESET_SORT_VALUE,
 })
 
-export const remove_product_from_cart = (id) => (dispatch, getState) => {
+export const remove_product_from_cart = (id) => (dispatch) => {
     try {
 
         let cart = JSON.parse(localStorage.getItem('products_in_cart'))
@@ -88,15 +93,15 @@ export const remove_product_from_cart = (id) => (dispatch, getState) => {
     }
 }
 
-export const add_product_in_cart = (id, icon, name, desc, price) => (dispatch, getState) => {
+export const add_product_in_cart = (id, icon, name, desc, price) => (dispatch) => {
     let error = ''
     let count = 1
     let products
     try {
         let cart = JSON.parse(localStorage.getItem('products_in_cart'))
-        if (cart){
-            for(let i = 0; i < cart.length; ++i){
-                if(cart[i].id === id){
+        if (cart) {
+            for (let i = 0; i < cart.length; ++i) {
+                if (cart[i].id === id) {
                     count++;
                     cart[i].count++;
                 }
@@ -104,7 +109,7 @@ export const add_product_in_cart = (id, icon, name, desc, price) => (dispatch, g
             if (count > 1) {
                 products = JSON.stringify([...cart])
             } else {
-                products = JSON.stringify([...cart,{id, count, icon, name, desc, price}])
+                products = JSON.stringify([...cart, {id, count, icon, name, desc, price}])
             }
 
         } else {
@@ -130,10 +135,10 @@ export const add_product_in_cart = (id, icon, name, desc, price) => (dispatch, g
 export const dec_product_cart = (id) => (dispatch) => {
     try {
         let cart = JSON.parse(localStorage.getItem('products_in_cart'))
-        for(let i = 0; i < cart.length; ++i){
-            if(cart[i].id === id){
+        for (let i = 0; i < cart.length; ++i) {
+            if (cart[i].id === id) {
                 cart[i].count--;
-                if (cart[i].count===0) {
+                if (cart[i].count === 0) {
                     cart.splice(i, 1)
                     break;
                 }
@@ -154,8 +159,8 @@ export const dec_product_cart = (id) => (dispatch) => {
 export const inc_product_cart = (id) => (dispatch) => {
     try {
         let cart = JSON.parse(localStorage.getItem('products_in_cart'))
-        for(let i = 0; i < cart.length; ++i){
-            if(cart[i].id === id){
+        for (let i = 0; i < cart.length; ++i) {
+            if (cart[i].id === id) {
                 cart[i].count++;
             }
         }
@@ -170,3 +175,46 @@ export const inc_product_cart = (id) => (dispatch) => {
 
     }
 }
+
+export const add_order = (products_source, total, email, first_name, last_name, comment, address, phone, pay_type) =>
+    async (dispatch, getState) => {
+        const token = getState().auth.token
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        if (token) {
+            config.headers['Authorization'] = `JWT ${token}`
+        }
+        let products = []
+        products_source.map((product) => {
+            for (let i = 1; i <= product.count; i++) {
+                products.push(product.id)
+            }
+        })
+
+        const request_body = JSON.stringify({
+            products,
+            total,
+            email,
+            first_name,
+            last_name,
+            comment,
+            address,
+            phone,
+            pay_type
+        })
+
+        await axios.post(BACK_URL + '/api/user/add_order/', request_body, config)
+            .then(() => {
+                dispatch({
+                    type: ADD_ORDER_SUCCESS,
+                })
+            }).catch(() => {
+                dispatch({
+                    type: ADD_ORDER_FAIL,
+                })
+            })
+        loadUser();
+    }

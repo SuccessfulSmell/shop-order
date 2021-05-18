@@ -47,7 +47,7 @@
   position: relative;
   float: right;
 
-  div{
+  div {
     z-index: 1000;
     padding: 30px;
     margin: 10px;
@@ -61,16 +61,16 @@
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
   }
 
-  .popup_success{
+  .popup_success {
     background-color: #c4ffc4;
   }
 
-  .popup_fail{
+  .popup_fail {
 
     background-color: rgb(253, 234, 234);
   }
 
-  .popup_unAuth{
+  .popup_unAuth {
     background-color: rgb(253, 234, 234);
   }
 }
@@ -114,8 +114,6 @@
   height: 2px;
   background-color: $main_color;
 }
-
-
 
 
 @media (max-width: 357px) {

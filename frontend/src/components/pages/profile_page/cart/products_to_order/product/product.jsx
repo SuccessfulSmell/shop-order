@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './product.module.scss'
 import img from './empty_img.svg'
 import {
@@ -11,10 +11,7 @@ import {connect} from "react-redux";
 import {NavLink} from "react-router-dom";
 
 function Product(props) {
-    const [count, setCount] = useState(props.count);
-
     const onInc = () => {
-
         props.inc_product_cart(props.id)
     }
     const onDec = () => {
@@ -37,13 +34,14 @@ function Product(props) {
             <div className={styles.product_info}>
                 {
                     props.name !== 'null'
-                        ?<div className={styles.title}>{props.name.split(' ').slice(0, 7).join(' ')}</div>
-                        :<div className={styles.title}>Нет данных</div>
+                        ? <div className={styles.title}>{props.name.split(' ').slice(0, 7).join(' ')}</div>
+                        : <div className={styles.title}>Нет данных</div>
                 }
                 {
                     props.desc !== 'null'
-                        ?<div className={styles.desc}>{props.desc.replaceAll('<br>', ' ').split(' ').slice(0, 20).join(' ')}</div>
-                        :<div className={styles.desc}>Нет данных</div>
+                        ? <div
+                            className={styles.desc}>{props.desc.replaceAll('<br>', ' ').split(' ').slice(0, 20).join(' ')}</div>
+                        : <div className={styles.desc}>Нет данных</div>
                 }
             </div>
 
@@ -54,9 +52,9 @@ function Product(props) {
             <div className={styles.price_info}>
                 <div className={styles.price_text}>Количество:</div>
                 <div className={styles.price_block}>
-                    <div onClick={() => onInc()} className={styles.price_plus}> + </div>
+                    <div onClick={() => onInc()} className={styles.price_plus}> +</div>
                     <div className={styles.price}>{props.count}&nbsp;шт.</div>
-                    <div onClick={() => onDec()} className={styles.price_minus}> - </div>
+                    <div onClick={() => onDec()} className={styles.price_minus}> -</div>
                 </div>
 
             </div>

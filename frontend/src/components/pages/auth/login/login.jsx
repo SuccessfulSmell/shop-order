@@ -11,7 +11,6 @@ function Login(props) {
     const [error, setError] = useState('');
 
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         await props.login(username, password);

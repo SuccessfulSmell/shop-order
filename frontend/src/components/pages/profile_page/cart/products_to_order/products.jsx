@@ -4,18 +4,19 @@ import Product from "./product/product";
 import {add_product_in_cart, remove_product_from_cart} from "../../../../../redux/modules/products/actions";
 import {connect} from "react-redux";
 import img_warning from "./empty_cart.svg";
+import {loadUser} from "../../../../../redux/modules/auth/actions";
 
 function Products(props) {
-    let products =  JSON.parse(localStorage.getItem('products_in_cart'))
+    let products = JSON.parse(localStorage.getItem('products_in_cart'))
 
 
     return (
         <div className={styles.products}>
             {products
-                ?(products.length >= 1)
-                    ?products.map(product =>
+                ? (products.length >= 1)
+                    ? products.map((product, index) =>
                         <Product
-                            key={product.id}
+                            key={index}
                             id={product.id}
                             count={product.count}
                             icon={product.icon}
@@ -47,6 +48,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     add_product_in_cart,
     remove_product_from_cart,
+    loadUser,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

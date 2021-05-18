@@ -24,11 +24,11 @@
   transition: opacity $animation_duration;
 }
 
-.remove:hover{
+.remove:hover {
   opacity: 100%;
 }
 
-.price_plus{
+.price_plus {
   color: rgba(0, 0, 0, 0.3);
   cursor: pointer;
   position: absolute;
@@ -36,15 +36,15 @@
   transition: color $animation_duration;
 }
 
-.price_plus:hover{
+.price_plus:hover {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.price_minus:hover{
+.price_minus:hover {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.price_minus{
+.price_minus {
   color: rgba(0, 0, 0, 0.3);
   cursor: pointer;
   position: absolute;
@@ -53,7 +53,7 @@
   transition: color $animation_duration;
 }
 
-.price_block{
+.price_block {
   position: relative;
 }
 

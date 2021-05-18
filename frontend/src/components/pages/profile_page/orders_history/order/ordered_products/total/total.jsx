@@ -4,7 +4,7 @@ import styles from './total.module.scss'
 function Total(props) {
     return (
         <div className={styles.total}>
-            Итог: <span className={styles.total_price}> {props.total_price}&nbsp;р.</span>
+            Итог: <span className={styles.total_price}> {props.total_price.toFixed(2)}&nbsp;р.</span>
         </div>
     );
 }
