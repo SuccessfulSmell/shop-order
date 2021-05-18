@@ -1,10 +1,36 @@
 import styles from './product.module.scss'
-import React from 'react';
+import React, {useState} from 'react';
 import img from './cart.png'
 import img_empty from './empty_img.svg'
 import {NavLink} from "react-router-dom";
+import {add_product_in_cart} from "../../../../../../redux/modules/products/actions";
+import {connect} from "react-redux";
 
 function Product(props) {
+    const [display_popup_success, setDisplay_popup_success] = useState(false);
+    const [display_popup_fail, setDisplay_popup_fail] = useState(false);
+    const [display_popup_unAuth, setDisplay_popup_unAuth] = useState(false);
+
+    const clickHandler = (id, icon, name, desc, price) => {
+        if (props.auth.isAuthenticated) {
+            if (!props.add_product_in_cart(id, icon, name, desc, price)) {
+                setDisplay_popup_fail(false)
+                setDisplay_popup_success(true)
+                setTimeout(() => {
+                    setDisplay_popup_success(false)
+                }, 3000);
+            } else {
+                setDisplay_popup_success(false)
+                setDisplay_popup_fail(true)
+                setTimeout(() => setDisplay_popup_fail(false), 3000);
+            }
+        } else {
+            setDisplay_popup_unAuth(false);
+            setDisplay_popup_unAuth(true);
+            setTimeout(() => setDisplay_popup_unAuth(false), 3000);
+        }
+
+    }
     return (
         <div className={styles.product}>
             <NavLink to={`/product/${props.id}`} className={styles.link_product}>
@@ -37,11 +63,38 @@ function Product(props) {
                         : <div className={styles.price}>{props.price}&nbsp;р.</div>
                 }
                 <div className={styles.cart}>
-                    <img className={styles.img_cart} src={img} alt=""/>
+                    <img
+                        onClick={() => clickHandler(props.id, props.picture, props.title, props.desc, props.price)}
+                        className={styles.img_cart} src={img} alt=""/>
+                    <div
+                        style={{opacity: display_popup_success ? '100%' : '0'}}
+                        className={styles.popup_success}>Товар был успешно добален
+                    </div>
+                    <div
+                        style={{opacity: display_popup_fail ? '100%' : '0'}}
+                        className={styles.popup_fail}>Произошла ошибка!
+                    </div>
+                    <div
+                        style={{opacity: display_popup_unAuth ? '100%' : '0'}}
+                        className={styles.popup_unAuth}>Вы не можете добавлять товар пока не зарегистрировались
+                    </div>
+
+
                 </div>
             </div>
         </div>
     );
 }
 
-export default Product;
+const mapStateToProps = state => {
+    return {
+        products: state.products,
+        auth: state.auth,
+    }
+}
+
+const mapDispatchToProps = {
+    add_product_in_cart,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

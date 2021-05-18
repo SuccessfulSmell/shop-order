@@ -10,4 +10,4 @@ export const LOGOUT_SUCCESS = `${moduleName}/LOGOUT_SUCCESS`
 export const SIGN_UP_SUCCESS = `${moduleName}/LOGIN_SUCCESS`
 export const SIGN_UP_FAIL = `${moduleName}/LOGIN_FAIL`
 export const CHANGE_PASSWORD_SUCCESS = `${moduleName}/CHANGE_PASSWORD_SUCCESS`
-export const CHANGE_PASSWORD_FAIL= `${moduleName}/CHANGE_PASSWORD_FAIL`
+export const CHANGE_PASSWORD_FAIL = `${moduleName}/CHANGE_PASSWORD_FAIL`

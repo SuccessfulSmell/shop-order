@@ -25,6 +25,4 @@ function Discount(props) {
 }
 
 
-
-
 export default Discount;

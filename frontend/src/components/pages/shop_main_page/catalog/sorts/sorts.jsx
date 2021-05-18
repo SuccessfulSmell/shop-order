@@ -13,12 +13,11 @@ import {API_getProducts_byCatID} from "../../../../../redux/modules/products/api
 import {API_getProducts_search} from "../../../../../redux/modules/products/api/get_products_search";
 
 const options = [
-    { value: 'min_price', label: 'По возрастанию цены' },
-    { value: 'max_price', label: 'По убыванию цены' },
-    { value: 'max_name', label: 'От А-Я' },
-    { value: 'min_name', label: 'От Я-А' },
+    {value: 'min_price', label: 'По возрастанию цены'},
+    {value: 'max_price', label: 'По убыванию цены'},
+    {value: 'max_name', label: 'От А-Я'},
+    {value: 'min_name', label: 'От Я-А'},
 ]
-
 
 
 function Sorts(props) {
@@ -46,7 +45,7 @@ function Sorts(props) {
             <Select
                 className={styles.select_new}
                 options={options}
-                placeholder="Сортировать по ..."
+                placeholder={`Сортировать\u00a0по\u00a0...`}
                 value={options.find(obj => obj.value === selectedValue)}
                 onChange={handleChange}
             />

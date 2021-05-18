@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from './signUp.module.scss';
 import img from "../login/login_3.svg";
 import {NavLink, Redirect} from "react-router-dom";
-import {register} from "../../../../redux/modules/auth/actions";
+import {loadUser, register} from "../../../../redux/modules/auth/actions";
 import {connect} from "react-redux";
 
 function SingUp(props) {
@@ -15,6 +15,7 @@ function SingUp(props) {
     const onSubmit = async (event) => {
         let pass_err = '';
         let email_err = '';
+        props.auth.error = ''
         event.preventDefault();
         if (passwordCheck) {
             if (passwordCheck !== password) {
@@ -32,8 +33,9 @@ function SingUp(props) {
 
         setError(pass_err + email_err);
 
-        if (!error) {
+        if (username.includes('@') && (passwordCheck === password) && (!props.auth.error)) {
             await props.register(username, password);
+            props.loadUser();
         }
 
     }
@@ -104,6 +106,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     register,
+    loadUser,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingUp);

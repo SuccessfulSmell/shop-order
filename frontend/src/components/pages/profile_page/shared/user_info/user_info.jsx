@@ -13,7 +13,6 @@ function UserInfo(props) {
         <div className={styles.content}>
             <Discount discount={props.discount}/>
             <div className={styles.fio}>{props.fio}</div>
-            <div className={styles.data}>Дата регистрации: {props.data}</div>
             <div onClick={onClick} className={`${styles.data} ${styles.exit}`}><span>Выйти</span></div>
 
         </div>

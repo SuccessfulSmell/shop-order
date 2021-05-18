@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from './login.module.scss';
 import img from './login_2.svg'
 import {NavLink, Redirect} from "react-router-dom";
-import {login, logout} from "../../../../redux/modules/auth/actions";
+import {loadUser, login, logout} from "../../../../redux/modules/auth/actions";
 import {connect} from "react-redux";
 
 function Login(props) {
@@ -11,10 +11,10 @@ function Login(props) {
     const [error, setError] = useState('');
 
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         await props.login(username, password);
+        props.loadUser();
     }
 
 
@@ -74,6 +74,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     login,
     logout,
+    loadUser,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

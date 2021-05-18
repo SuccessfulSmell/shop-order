@@ -3,7 +3,34 @@
 
 
 .product_info {
+  position: relative;
+}
 
+.warning_ {
+  z-index: 1000;
+  padding: 30px;
+  margin: 10px;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transition: all $animation_duration;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+}
+
+.popup_success {
+  background-color: #c4ffc4;
+}
+
+.popup_fail {
+
+  background-color: rgb(253, 234, 234);
+}
+
+.popup_unAuth {
+  background-color: rgb(253, 234, 234);
 }
 
 .loading_img_ {
@@ -88,6 +115,7 @@
   min-width: 100px;
   height: 50px;
   margin-left: 10px;
+  cursor: pointer;
 
   color: $main_color;
 

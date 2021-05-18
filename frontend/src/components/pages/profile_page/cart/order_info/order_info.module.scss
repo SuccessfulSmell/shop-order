@@ -35,6 +35,8 @@
 
 .order_btn {
   @include center_block();
+  @include clear_link(rgba(255, 255, 255, 0.9));
+  cursor: pointer;
   width: 150px;
   height: 50px;
   background: $main_color;

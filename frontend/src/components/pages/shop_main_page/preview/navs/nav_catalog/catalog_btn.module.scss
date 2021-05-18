@@ -19,7 +19,7 @@
   transition: background $animation_duration, border $animation_duration, box-shadow $animation_duration;
 }
 
-.link_{
+.link_ {
   @include clear_link($main_color);
 }
 
@@ -55,7 +55,7 @@
 
   }
 
-  .link_{
+  .link_ {
     @include clear_link(white);
   }
 

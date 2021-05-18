@@ -9,8 +9,8 @@ function OrderedProducts(props) {
             {
                 (props.orded_products)
                     ? (props.orded_products.length > 0)
-                    ? props.orded_products.map((product) => (
-                        <OrderedProduct key={props.order_id} product={product}/>
+                    ? props.orded_products.map((product, index) => (
+                        <OrderedProduct key={index} product={product}/>
                     ))
                     : ''
                     : ''
