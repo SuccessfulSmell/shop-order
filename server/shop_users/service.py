@@ -4,28 +4,37 @@ from .models import UserOrder, ProductsInOrder, UserDiscount
 from shop_products.models import Products
 
 
-def add_new_order(username: str, products: list) -> dict:
+def add_new_order(username: str, request: dict, products: list) -> dict:
     """ Add order in Database.
 
     :param username: name of user.
+    :param request:  request data from user.
     :param products: list with products ID's.
     :return:         dict response status.
     """
     try:
         total_price = 0
+        phone = request.get('phone', '')
+        address = request.get('address', '')
+        pay_type = request.get('pay_type', '')
+        comment = request.get('comment', '')
 
         user_obj = User.objects.get(username=username)
-        orders = UserOrder.objects.create(user=user_obj, total_price=float(total_price))
+        orders = UserOrder.objects.create(user=user_obj, address=address, phone=phone,
+                                          pay_type=pay_type, comment=comment,
+                                          total_price=float(total_price))
         discount = UserDiscount.objects.get(user=user_obj)
 
         product_list = []
         for product_id in products:
-            product = Products.objects.filter(product_id=str(product_id))
+            product = Products.objects.filter(id=str(product_id))
 
             if product_id not in product_list:
                 product_list.append(product_id)
                 product_count = products.count(product_id)
-                total_price += float(product[0].price) * product_count
+                price_discount = product[0].price * product[0].category.discount / 100
+                product_price = product[0].price - price_discount
+                total_price += float(product_price) * product_count
             else:
                 continue
 

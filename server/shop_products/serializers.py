@@ -4,13 +4,13 @@ from .models import Products, Categories, SubCategory
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    discount = serializers.CharField(source='category.discount')
+    discount = serializers.IntegerField(source='category.discount')
     category_id = serializers.CharField(source='category.id')
     category_name = serializers.CharField(source='category.sub_category')
 
     class Meta:
         model = Products
-        fields = ['id','name', 'article', 'price', 'price_rec', 'price_opt',
+        fields = ['id', 'name', 'article', 'price', 'price_rec', 'price_opt',
                   'currency', 'product_id', 'url', 'picture', 'description',
                   'available', 'provider', 'discount', 'category_name', 'category_id']
 

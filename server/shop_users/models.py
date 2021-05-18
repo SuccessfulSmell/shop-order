@@ -31,11 +31,15 @@ class ProductsInOrder(models.Model):
 
 class UserOrder(models.Model):
     user = models.ForeignKey(verbose_name='Пользователь', to=User, on_delete=models.CASCADE)
+    address = models.CharField(verbose_name='Адрес', max_length=200, default='', blank=True, null=True)
+    phone = models.CharField(verbose_name='Телефон', max_length=200, default='', blank=True, null=True)
+    pay_type = models.CharField(verbose_name='Способ оплаты', max_length=200, default='', blank=True, null=True)
+    comment = models.TextField(verbose_name='Комментарий к заказу', default='', blank=True, null=True)
     total_price = models.FloatField(verbose_name='Итого (BYN)', default=0, blank=True, null=True)
     products = models.ManyToManyField(ProductsInOrder, verbose_name='Товары в заказе', blank=True)
     date = models.DateTimeField(blank=True, null=True, auto_now_add=True)
 
     class Meta:
         db_table = 'user_orders'
-        verbose_name = 'История заказов пользователя'
-        verbose_name_plural = 'История заказов пользователя'
+        verbose_name = 'История заказов пользоватей'
+        verbose_name_plural = 'История заказов пользоватей'

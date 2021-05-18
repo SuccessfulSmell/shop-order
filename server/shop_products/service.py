@@ -9,6 +9,21 @@ class BaseService:
     provider = ''
 
     @staticmethod
+    def delete_defective_categories() -> dict:
+        """ Delete defective categories from DB.
+
+        :return:         dict with delete status.
+        """
+        try:
+            for sub_category in SubCategory.objects.all():
+                products = Products.objects.filter(category__sub_category=sub_category.sub_category)
+                if not products:
+                    sub_category.delete()
+            return {'message': 'all defective was deleted'}
+        except Exception as error:
+            return {'error': str(error)}
+
+    @staticmethod
     def update_sub_categories(category: str) -> tuple:
         """ Update SubCategory model fields.
 
