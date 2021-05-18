@@ -47,7 +47,14 @@ function Product(props) {
 
             <div className={styles.price_info}>
                 <div className={styles.price_text}>Стоимость:</div>
-                <div className={styles.price}>{(props.price * props.count).toFixed(2)}&nbsp;р.</div>
+                {
+                    props.price === 'null'
+                        ? <div className={styles.price}>Уточнить</div>
+                        : props.discount > 0
+                        ? <div className={`${styles.price} ${styles.sales}`}>{(props.price* props.count).toFixed(2)}&nbsp;р. <span>{parseFloat(props.price * (1 - (props.discount/100))* props.count).toFixed(2)}&nbsp;р.</span></div>
+                        : <div className={styles.price}>{(props.price* props.count).toFixed(2)}&nbsp;р.</div>
+
+                }
             </div>
             <div className={styles.price_info}>
                 <div className={styles.price_text}>Количество:</div>

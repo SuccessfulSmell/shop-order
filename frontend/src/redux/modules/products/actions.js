@@ -18,7 +18,6 @@ import {
 } from "./types";
 import axios from 'axios';
 import {BACK_URL} from "../../BACK_URL";
-import {loadUser} from "../auth/actions";
 
 export const catalog_info = data => ({
     type: GET_PRODUCTS,
@@ -93,7 +92,7 @@ export const remove_product_from_cart = (id) => (dispatch) => {
     }
 }
 
-export const add_product_in_cart = (id, icon, name, desc, price) => (dispatch) => {
+export const add_product_in_cart = (id, icon, name, desc, price, discount) => (dispatch) => {
     let error = ''
     let count = 1
     let products
@@ -109,11 +108,11 @@ export const add_product_in_cart = (id, icon, name, desc, price) => (dispatch) =
             if (count > 1) {
                 products = JSON.stringify([...cart])
             } else {
-                products = JSON.stringify([...cart, {id, count, icon, name, desc, price}])
+                products = JSON.stringify([...cart, {id, count, icon, name, desc, price, discount}])
             }
 
         } else {
-            products = JSON.stringify([{id, count, icon, name, desc, price}])
+            products = JSON.stringify([{id, count, icon, name, desc, price, discount}])
         }
         localStorage.setItem('products_in_cart', products)
         dispatch({
@@ -216,5 +215,4 @@ export const add_order = (products_source, total, email, first_name, last_name, 
                     type: ADD_ORDER_FAIL,
                 })
             })
-        loadUser();
     }

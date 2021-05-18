@@ -22,8 +22,8 @@ function Products(props) {
                             <div className={styles.name}><NavLink
                                 to={`/product/${product.id}`}>{product.name.split(' ').slice(0, 5).join(' ')}</NavLink>
                             </div>
-                            <div className={styles.count}>{product.count}</div>
-                            <div className={styles.price}>{product.price}&nbsp;р.</div>
+                            <div className={styles.count}>{(product.count)}</div>
+                            <div className={styles.price}>{parseFloat(product.price * (1 - (product.discount/100).toFixed(2))).toFixed(2)}&nbsp;р.</div>
                         </div>
                     ))
                     : ''

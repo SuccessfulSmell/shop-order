@@ -13,9 +13,9 @@ function ProductInfo(props) {
     const [display_popup_fail, setDisplay_popup_fail] = useState(false);
     const [display_popup_unAuth, setDisplay_popup_unAuth] = useState(false);
 
-    const clickHandler = (id, icon, name, desc, price) => {
+    const clickHandler = (id, icon, name, desc, price, discount) => {
         if (props.auth.isAuthenticated) {
-            if (!props.add_product_in_cart(id, icon, name, desc, price)) {
+            if (!props.add_product_in_cart(id, icon, name, desc, price, discount)) {
                 setDisplay_popup_fail(false)
                 setDisplay_popup_success(true)
                 setTimeout(() => {
@@ -72,9 +72,16 @@ function ProductInfo(props) {
                         </div>
 
                         <div className={styles.price_block}>
-                            <div className={styles.price}>{props.product.price}&nbsp;р.</div>
+                            {
+                                props.product.price === 'null'
+                                    ? <div className={styles.price}>Уточнить</div>
+                                    : props.product.discount > 0
+                                    ? <div className={`${styles.price} ${styles.sales}`}>{props.product.price}&nbsp;р. <span>{parseFloat(props.product.price * (1 - (props.product.discount/100))).toFixed(2)}&nbsp;р.</span></div>
+                                    : <div className={styles.price}>{props.product.price}&nbsp;р.</div>
+
+                            }
                             <div
-                                onClick={() => clickHandler(props.product.id, props.product.picture, props.product.name, props.product.description, props.product.price)}
+                                onClick={() => clickHandler(props.product.id, props.product.picture, props.product.name, props.product.description, props.product.price, props.products.discount)}
                                 className={styles.btn_add_cart}>В корзину
                             </div>
                         </div>

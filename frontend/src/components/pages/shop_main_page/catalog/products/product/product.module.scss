@@ -123,3 +123,35 @@
   }
 
 }
+
+.sales{
+  position: relative;
+  color: rgba(0, 0, 0, 0.4) !important;
+
+  span{
+    color: red;
+  }
+}
+
+.sales:before{
+  position: absolute;
+  content: '';
+  width: 40%;
+  height: 32px;
+  opacity: 100%;
+  transform: rotate(30deg);
+  top: -3px;
+  left: 5px;
+  background: url('../line.svg') 50% 50%/cover no-repeat;
+}
+.sales:after{
+  position: absolute;
+  content: 'СКИДКА';
+  font-size: 14px;
+  padding: 3px;
+  background-color: red;
+  color: white;
+  opacity: 80%;
+  top: -30px;
+  left: 0;
+}

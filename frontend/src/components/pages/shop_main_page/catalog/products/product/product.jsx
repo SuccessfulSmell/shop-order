@@ -11,9 +11,9 @@ function Product(props) {
     const [display_popup_fail, setDisplay_popup_fail] = useState(false);
     const [display_popup_unAuth, setDisplay_popup_unAuth] = useState(false);
 
-    const clickHandler = (id, icon, name, desc, price) => {
+    const clickHandler = (id, icon, name, desc, price, discount) => {
         if (props.auth.isAuthenticated) {
-            if (!props.add_product_in_cart(id, icon, name, desc, price)) {
+            if (!props.add_product_in_cart(id, icon, name, desc, price, discount)) {
                 setDisplay_popup_fail(false)
                 setDisplay_popup_success(true)
                 setTimeout(() => {
@@ -60,11 +60,14 @@ function Product(props) {
                 {
                     props.price === 'null'
                         ? <div className={styles.price}>Уточнить</div>
-                        : <div className={styles.price}>{props.price}&nbsp;р.</div>
+                        : props.discount > 0
+                        ? <div className={`${styles.price} ${styles.sales}`}>{parseFloat(props.price).toFixed(2)}&nbsp;р. <span>{parseFloat(props.price * (1 - (props.discount/100))).toFixed(2)}&nbsp;р.</span></div>
+                        : <div className={styles.price}>{parseFloat(props.price).toFixed(2)}&nbsp;р.</div>
+
                 }
                 <div className={styles.cart}>
                     <img
-                        onClick={() => clickHandler(props.id, props.picture, props.title, props.desc, props.price)}
+                        onClick={() => clickHandler(props.id, props.picture, props.title, props.desc, props.price, props.discount)}
                         className={styles.img_cart} src={img} alt=""/>
                     <div
                         style={{opacity: display_popup_success ? '100%' : '0'}}

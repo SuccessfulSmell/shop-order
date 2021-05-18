@@ -33,7 +33,7 @@ function NewOrder(props) {
         setPay_type(e.value);
     }
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         let error_text = ''
         if (!email.includes('@')) {
             error_text += '\n\rНедопустимый email'
@@ -48,7 +48,8 @@ function NewOrder(props) {
         e.preventDefault()
 
         if (!error_text) {
-            props.add_order(products, total, email, first_name, last_name, comment, address, phone, pay_type)
+            await props.add_order(products, total, email, first_name, last_name, comment, address, phone, pay_type)
+            await localStorage.removeItem('products_in_cart')
             window.location.href = '/profile/order_history'
         }
 
