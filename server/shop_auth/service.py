@@ -36,6 +36,7 @@ def _get_order_products(order_products: list) -> list:
         product_count = product.product_count
         data = {'product_count': product_count,
                 'product_name': product.product.name,
+                'discount': product.product.category.discount,
                 'picture': product.product.picture,
                 'price': product.product.price}
         products.append(data)
@@ -53,7 +54,9 @@ def get_user_products(username: str) -> list:
         orders = UserOrder.objects.filter(user=user_obj)
         if orders:
             order_info = []
-            for index, user_order in enumerate(orders):
+            orders_len = len(orders)
+            indexes = reversed(range(orders_len))
+            for index, user_order in zip(indexes, reversed(orders)):
                 order_products = user_order.products.all()
                 products = _get_order_products(order_products)
                 data = {'order_id': index + 1,
