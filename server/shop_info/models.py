@@ -6,6 +6,7 @@ class SiteSettings(models.Model):
     contact_phone = models.CharField(verbose_name='Контактный телефон', max_length=20, default='', blank=True, null=True)
     logist_phone = models.CharField(verbose_name='Телефон логиста', max_length=20, default='', blank=True, null=True)
     address = models.CharField(verbose_name='Юр.адрес', max_length=80, default='', blank=True, null=True)
+    email = models.CharField(verbose_name='Почта', max_length=80, default='', blank=True, null=True)
     about_info = models.TextField(verbose_name='Информация о сайте', default='', blank=True, null=True)
 
     @staticmethod
