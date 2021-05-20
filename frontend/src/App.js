@@ -8,7 +8,7 @@ function App(props) {
     useEffect(() => {
 
         props.loadUser();
-    }, [])
+    })
     return (
         <div>
             <Index/>

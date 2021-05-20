@@ -2,20 +2,16 @@
 @import "../../../../../shared/main_mixins";
 
 .auth {
-  position: absolute;
-  width: 50%;
-  top: 50px;
-  right: 100px;
+  display: flex;
 
   a {
     @include clear_link(white);
     display: block;
     color: white;
     opacity: 60%;
-    font-size: 23px;
+    font-size: 21px;
     font-weight: 300;
     text-align: right;
-    padding-bottom: 20px;
 
     transition: opacity $animation_duration, text-shadow $animation_duration;
   }
@@ -26,11 +22,11 @@
   }
 }
 
-$icon_size: 32px;
+$icon_size: 28px;
 
 .login {
   position: relative;
-  padding-right: $icon_size + 20px;
+  padding-right: $icon_size + 10px;
 }
 
 .login:after {
@@ -38,7 +34,7 @@ $icon_size: 32px;
   background: url('./white/login.png') 50% 50%/cover no-repeat;
   position: absolute;
   right: 0;
-  top: 0;
+
   width: $icon_size;
   height: $icon_size;
 }
@@ -46,7 +42,8 @@ $icon_size: 32px;
 
 .signup {
   position: relative;
-  padding-right: $icon_size + 20px;
+  padding-right: $icon_size + 10px;
+  margin-right: 55px;
 }
 
 .signup:after {
@@ -54,7 +51,6 @@ $icon_size: 32px;
   background: url('./white/add-user.png') 50% 50%/cover no-repeat;
   position: absolute;
   right: 0;
-  top: 0;
   width: $icon_size;
   height: $icon_size;
 
@@ -109,15 +105,16 @@ $icon_size: 32px;
   }
 
   .auth {
+
     a {
+      padding-top: 5px;
+      padding-bottom: 5px;
       font-size: 14px;
+      margin-right: 0;
     }
   }
   .auth {
-    position: absolute;
-    width: 50%;
-    top: 30px;
-    right: 25px;
+
   }
 }
 

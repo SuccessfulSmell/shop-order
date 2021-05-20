@@ -81,7 +81,7 @@ function ProductInfo(props) {
 
                             }
                             <div
-                                onClick={() => clickHandler(props.product.id, props.product.picture, props.product.name, props.product.description, props.product.price, props.products.discount)}
+                                onClick={() => clickHandler(props.product.id, props.product.picture, props.product.name, props.product.description, props.product.price, props.product.discount)}
                                 className={styles.btn_add_cart}>В корзину
                             </div>
                         </div>

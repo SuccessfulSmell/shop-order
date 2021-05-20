@@ -8,14 +8,26 @@ function ProfileNavs(props) {
     return (
         <div className={styles.auth}>
             <NavLink to={'/profile/user'} className={styles.signup}>Личный кабинет</NavLink>
-            <NavLink to={'/profile/cart'} className={styles.login}>Корзина</NavLink>
+            <NavLink to={'/profile/cart'} className={styles.login}>
+                Корзина
+                {
+                    props.products.products_in_cart.length > 0
+                        ? Object.keys(props.products.products_in_cart[0]).length !== 0
+                        ? <div className={styles.img}>{props.products.products_in_cart.length}</div>
+                        : ''
+                        : ''
+
+                }
+
+            </NavLink>
         </div>);
 }
 
 
 const mapStateToProps = state => {
     return {
-        auth: state.auth
+        auth: state.auth,
+        products: state.products,
     }
 }
 

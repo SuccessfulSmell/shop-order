@@ -48,9 +48,11 @@ function Pagination(props) {
 
 
         props.set_fatching(false);
-
+        debugger;
         if (props.products.searchBy) {
             await props.API_getProducts_search(props.products.searchBy, page, props.products.sortBy);
+        } else if (props.products.id_categories.length >= 1) {
+            await props.API_getProducts_byCatID(props.products.id_categories[0], page, props.products.sortBy);
         } else {
             await props.API_getProducts(url_arr[1] ? page + '&' + url_arr[1] : page, props.products.sortBy);
         }
