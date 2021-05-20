@@ -8,7 +8,6 @@ import {connect} from "react-redux";
 function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
 
 
     const handleSubmit = async (event) => {
@@ -49,7 +48,6 @@ function Login(props) {
                         />
                     </div>
                     <div className={styles.error}>
-                        {error}
                         {
                             props.auth.error ? 'Неверный логин или пароль' : ''
                         }

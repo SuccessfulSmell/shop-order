@@ -6,30 +6,34 @@ import Title from "./title/title";
 import CatalogBtn from "./navs/nav_catalog/catalog_btn";
 import {connect} from "react-redux";
 import ProfileNavs from "./navs/navs_profile/profileNavs";
-import img from './bg_img/2290-500x500.png'
 
 function Preview(props) {
     return (
         <div>
-            <div className={styles.bg}>
-                <img src={img} alt=""/>
+            <div className={styles.bg}> </div>
+            <div className={styles.header_menu}>
+                <div className={`container-md ${styles.header_content}`}>
+                    <Logo/>
+                    <div className={styles.auth_block}>
+                        {props.isLoading
+                            ? ''
+                            : props.isAuthenticated
+                                ? <ProfileNavs/>
+                                : <Auth/>
+                        }
+
+                    </div>
+                </div>
+
             </div>
             <div className={`${styles.preview} container-md`}>
+
                 <div className={styles.main_info}>
-                    <Logo/>
                     <Title/>
                     <CatalogBtn/>
                 </div>
 
-                <div className={styles.auth_block}>
-                    {props.isLoading
-                        ? ''
-                        : props.isAuthenticated
-                            ? <ProfileNavs/>
-                            : <Auth/>
-                    }
 
-                </div>
             </div>
         </div>
     );

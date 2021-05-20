@@ -1,4 +1,4 @@
-#  Run Backend
+# Run Backend
 
 1. Clone git repository:
     ```sh
@@ -8,21 +8,21 @@
     ```sh
      cd shop-order/
     ```
-   
+
 3. Set virtual environment:
     ```sh
     python3 -m venv venv
     ```
 
 4. Activate virtual environment:
-    
-    MacOS/Linux
-    
+
+   MacOS/Linux
+
     ```sh
     source venv/bin/activate
     ```
-    
-    Windows
+
+   Windows
     ```sh
     venv\Scripts\activate
     ```
@@ -32,7 +32,7 @@
     ```sh
      pip install -r requirements.txt
     ```
-   
+
 6. Open project repository:
     ```sh
      cd server/
@@ -43,7 +43,7 @@
     ```sh
     python manage.py runserver makemigrations 
     ```
-   
+
 8. Run Django migrations:
 
     ```sh
@@ -55,12 +55,13 @@
     ```sh
     python manage.py runserver 0.0.0.0:8000
     ```
-   
-#  Run Frontend
- 1. Open repository:
-    ```sh
-    cd frontend/
-    ```
+
+# Run Frontend
+
+1. Open repository:
+   ```sh
+   cd frontend/
+   ```
 
 2. Install requirements:
     ```sh
@@ -71,37 +72,41 @@
     ```sh
     npm start
     ```
-   
+
 # Docker run
 
 Run services in the background:
+
 ```sh
 docker-compose up -d
 ```
 
-
 Run services in the foreground:
+
 ```sh
 docker-compose up --build
 ```
-
 
 Inspect volume:
 
 ```sh
 docker volume ls
 ```
+
 and
+
 ```sh
 docker volume inspect <volume name>
 ```
 
 View networks:
+
 ```sh
 docker network ls
 ```
 
 Bring services down:
+
 ```sh
 docker-compose down
 ```
