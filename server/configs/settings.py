@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
 import datetime
 
 from pathlib import Path
@@ -165,6 +166,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'api/media').replace('\\', '/')
+MEDIA_URL = '/api/media/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = f'{BASE_DIR}/static'
