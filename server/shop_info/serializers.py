@@ -1,4 +1,4 @@
-from .models import SiteSettings
+from .models import SiteSettings, AdminSales
 from shop_products.models import SubCategory
 
 from rest_framework import serializers
@@ -14,3 +14,9 @@ class SalesSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubCategory
         fields = ['sub_category', 'discount']
+
+
+class AdminSalesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AdminSales
+        fields = ['title', 'about_info', 'discount', 'photo']
