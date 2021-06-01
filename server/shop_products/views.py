@@ -8,7 +8,8 @@ from rest_framework.pagination import PageNumberPagination
 
 from .service import ToolsByService, EtpromByService
 from .models import Categories, Products
-from .serializers import ProductSerializer, CategoriesSerializer
+from .serializers import ProductSerializer, CategoriesSerializer, \
+    MainCategoryGroupSerializer, MainCategoryGroup
 
 PAGINAGION_PAGE_NUMBER = 24
 
@@ -55,6 +56,12 @@ class CategoriesView(generics.ListCreateAPIView):
     """ Returns List of all categories. """
     serializer_class = CategoriesSerializer
     queryset = Categories.objects.all()
+
+
+class MainCategoryGroupView(generics.ListCreateAPIView):
+    """ Returns List of all group categories. """
+    serializer_class = MainCategoryGroupSerializer
+    queryset = MainCategoryGroup.objects.all()
 
 
 class CategorySearchProducsView(generics.ListCreateAPIView):

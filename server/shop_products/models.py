@@ -73,3 +73,14 @@ class Products(models.Model):
         db_table = 'products'
         verbose_name = 'Товары'
         verbose_name_plural = 'Товары'
+
+
+class MainCategoryGroup(models.Model):
+    name = models.CharField(verbose_name='Название группы категории', max_length=200, default='', blank=True, null=True)
+    icon = models.ImageField(verbose_name='Иконка категории', default='', blank=True, null=True)
+    sub_category = models.ManyToManyField(Categories, verbose_name='подкатегории', blank=True)
+
+    class Meta:
+        db_table = 'categories_group'
+        verbose_name = 'Группы категорий'
+        verbose_name_plural = 'Группы категорий'
