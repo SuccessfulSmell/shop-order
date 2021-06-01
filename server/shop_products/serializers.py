@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Products, Categories, SubCategory
+from .models import Products, Categories, SubCategory,  MainCategoryGroup
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -28,3 +28,11 @@ class CategoriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categories
         fields = ['category', 'sub_category']
+
+
+class MainCategoryGroupSerializer(serializers.ModelSerializer):
+    sub_category = CategoriesSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = MainCategoryGroup
+        fields = ['name', 'icon', 'sub_category']

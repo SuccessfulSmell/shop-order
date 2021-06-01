@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MainCategory, SubCategory, Categories, Providers, Products
+from .models import MainCategory, SubCategory, Categories, Providers, Products, MainCategoryGroup
 
 PER_PAGE = 10
 
@@ -31,8 +31,15 @@ class ProductsAdmin(admin.ModelAdmin):
     list_per_page = 50
 
 
+class MainCategoryGroupAdmin(admin.ModelAdmin):
+    search_fields = ['name']
+    list_display = ('name', 'icon')
+    list_per_page = 50
+
+
 admin.site.register(MainCategory, MainCategoryAdmin)
 admin.site.register(SubCategory, SubCategoryAdmin)
 admin.site.register(Categories, CategoriesAdmin)
 admin.site.register(Providers, ProvidersAdmin)
 admin.site.register(Products, ProductsAdmin)
+admin.site.register(MainCategoryGroup, MainCategoryGroupAdmin)

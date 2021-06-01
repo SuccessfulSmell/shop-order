@@ -13,6 +13,7 @@
     "Получить список товаров по ID категории и с сортировкой": "http://127.0.0.1:8000/api/products/get_products/1/?sort=max_price",
     "Получить товара по django id товара": "http://127.0.0.1:8000/api/products/get_product/1/",
     "Получить список категорий": "http://127.0.0.1:8000/api/products/get_categories/",
+    "Получить список групп категорий": "http://127.0.0.1:8000/api/products/get_group_categories/",
     "Обновление товаров": "http://127.0.0.1:8000/api/products/update_products/"
   },
   "Личный кабинет": {

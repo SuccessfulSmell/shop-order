@@ -23,7 +23,6 @@ class AdminSales(models.Model):
     title = models.CharField(verbose_name='Заголовок акции', max_length=32, default='', blank=True, null=True)
     about_info = models.TextField(verbose_name='Описание акции', default='', blank=True, null=True)
     discount = models.IntegerField(verbose_name='Скидка', default=0, blank=True, null=True)
-    # photo = models.FileField(verbose_name='Фон', default='', blank=True, null=True)
     photo = models.ImageField(verbose_name='Фон', default='', blank=True, null=True)
 
     class Meta:
