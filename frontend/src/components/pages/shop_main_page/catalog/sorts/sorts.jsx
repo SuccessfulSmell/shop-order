@@ -30,14 +30,14 @@ function Sorts(props) {
         props.set_fatching(false);
         props.set_current_page(1);
         if ((props.products.id_categories.length === 0) && (props.products.searchBy === '')) {
-            await props.API_getProducts(props.products.currentPage, e.value);
+            await props.API_getProducts(1, e.value);
 
         } else if (props.products.id_categories.length >= 1) {
-            await props.API_getProducts_byCatID(props.products.id_categories[0], props.products.currentPage, e.value);
+            await props.API_getProducts_byCatID(props.products.id_categories[0], 1, e.value);
         } else if (props.products.searchBy !== '') {
-            await props.API_getProducts_search(props.products.searchBy, props.products.currentPage, e.value);
+            await props.API_getProducts_search(props.products.searchBy, 1, e.value);
         }
-
+        props.set_current_page(1);
     }
 
     return (

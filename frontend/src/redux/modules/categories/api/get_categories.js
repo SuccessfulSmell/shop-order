@@ -1,9 +1,10 @@
 import {all_categories} from "../actions";
+import {BACK_URL} from "../../../BACK_URL";
 
 export const API_getCategories = () => async (dispatch) => {
     try {
 
-        await fetch('http://127.0.0.1:8000/api/products/get_categories/')
+        await fetch(BACK_URL + '/api/products/get_categories/')
             .then(response => response.json())
             .then(data => dispatch(all_categories(data)))
     } catch (e) {
