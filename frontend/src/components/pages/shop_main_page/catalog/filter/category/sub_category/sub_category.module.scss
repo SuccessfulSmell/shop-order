@@ -32,7 +32,7 @@
   display: none;
 }
 
-details > summary {
+.details > summary {
   list-style: none;
 }
 
@@ -48,12 +48,12 @@ details > summary {
   transition: transform $animation_duration;
 }
 
-details[open] summary ~ * {
+.details[open] summary ~ * {
   animation: sweep $animation_duration + 0.2s ease-in-out;
 
 }
 
-details[open] {
+.details[open] {
   .list_title:after {
     transform: rotate(90deg);
   }

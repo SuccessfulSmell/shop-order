@@ -142,6 +142,10 @@ function NewOrder(props) {
 
 
             </form>
+
+            <div className={styles.delivery}>
+                Доставка по молодечненскому району: <br/>Мелкогабарит 8 р. <br/>Крупно габарит 16 р. <br/>Обьемные 32 р. до подъезда.
+            </div>
         </div>
     );
 }
