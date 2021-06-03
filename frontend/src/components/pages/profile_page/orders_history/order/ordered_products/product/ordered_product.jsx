@@ -18,7 +18,7 @@ function OrderedProduct(props) {
                 {
                     props.product.product_name
                         ? <div>Наименование:<span
-                            className={styles.title}>{props.product.product_name.split(' ').slice(0, 5)}</span></div>
+                            className={styles.title}>{props.product.product_name.split(' ').slice(0, 5).join(' ')}</span></div>
 
                         : 'Нет данных'
                 }
