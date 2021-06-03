@@ -4,15 +4,21 @@ import styles from './contact.module.scss'
 function Contact(props) {
     return (
         <div>
-            <span className={styles.contact_info}>
-                    Республика Беларусь <br/>
-                    Минская обл. Молодечненский р-н, д. Красное, ул.1Мая д.78
-                    УНН 690387122
-                    <br/> <br/>
-                    Моб.тел: + 375 (29) 760-18-59 <br/>
-                    Тел: +375 (17) 679-62-25 <br/>
-                    Почта: cargomol@mail.ru <br/>
-            </span>
+            {
+                props.info.length > 0
+                    ?
+                    <span className={styles.contact_info}>
+                        {props.info[0].address}
+                        <br/> <br/>
+                        Моб.тел: {props.info[0].logist_phone} <br/>
+                        Тел: {props.info[0].contact_phone} <br/>
+                        Почта: cargomol@mail.ru <br/>
+                    </span>
+                    : ''
+
+            }
+
+
         </div>
     );
 }

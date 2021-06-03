@@ -26,7 +26,7 @@ function SubCategory(props) {
 
     return (
         <div className={styles.category_list}>
-                <details>
+                <details className={styles.details}>
                     <summary className={styles.list_title}>{props.category_name}</summary>
                     {props.sub_categories.map((sub_category) =>
                         <div onClick={() =>

@@ -7,6 +7,43 @@
   margin-right: 20px;
   font-size: 16px;
 }
+.list_titles{
+  position: relative;
+  padding-left: 17px;
+  font-size: 1em;
+  font-weight: normal;
+
+
+}
+.list_titles::marker {
+  display: none;
+}
+
+
+.list_titles:after {
+  position: absolute;
+  content: '';
+  top: 6px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: url("./sub_category/play.svg") 50% 50%/cover no-repeat;
+  opacity: 90%;
+  transition: transform $animation_duration;
+}
+
+.group > summary {
+  list-style: none;
+}
+.group[open] summary ~ * {
+  animation: sweep $animation_duration + 0.2s ease-in-out;
+}
+
+.group[open] {
+  .list_titles:after {
+    transform: rotate(90deg);
+  }
+}
 
 .category_name {
   position: relative;

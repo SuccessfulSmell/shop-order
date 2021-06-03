@@ -4,7 +4,6 @@ import SubCategory from "./sub_category/sub_category";
 import {API_getCategories} from "../../../../../../redux/modules/categories/api/get_categories";
 import {connect} from "react-redux";
 import {get_groups} from "../../../../../../redux/modules/categories/actions";
-import style_sum from './sub_category/sub_category.module.scss'
 
 function Category(props) {
 
@@ -29,7 +28,7 @@ function Category(props) {
                         }
 
                         <details key={index} className={styles.group}>
-                            <summary className={style_sum.list_title}>{group.name}</summary>
+                            <summary className={`${styles.list_titles}`}>{group.name}</summary>
                             {group.sub_category.map((category, index) =>
                                 (category.sub_category.length > 0)
                                     ? <SubCategory
