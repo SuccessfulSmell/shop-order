@@ -35,8 +35,7 @@
 
 .preview {
   padding-top: 50px;
-  min-height: 900px;
-  height: 100vh;
+  padding-bottom: 100px;
 }
 
 .main_info {
@@ -76,7 +75,6 @@
 
 .sub_text{
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-
   font-size: 1.5em;
 }
 
@@ -98,6 +96,10 @@
   .preview {
     padding-top: 10px;
   }
+
+  .text_block{
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -105,6 +107,11 @@
 
 
   }
+
+  .text_block{
+    font-size: 10px;
+  }
+
   .main_info {
     display: flex;
     flex-direction: column;
@@ -120,4 +127,10 @@
     }
   }
 
+}
+
+@media (max-width: 350px){
+  .text_block{
+    font-size: 7px;
+  }
 }

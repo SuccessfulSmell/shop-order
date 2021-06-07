@@ -70,15 +70,15 @@ function Product(props) {
                         onClick={() => clickHandler(props.id, props.picture, props.title, props.desc, props.price, props.discount)}
                         className={styles.img_cart} src={img} alt=""/>
                     <div
-                        style={{opacity: display_popup_success ? '100%' : '0'}}
+                        style={{opacity: display_popup_success ? '1' : '0'}}
                         className={styles.popup_success}>Товар был успешно добален
                     </div>
                     <div
-                        style={{opacity: display_popup_fail ? '100%' : '0'}}
+                        style={{opacity: display_popup_fail ? '1' : '0'}}
                         className={styles.popup_fail}>Произошла ошибка!
                     </div>
                     <div
-                        style={{opacity: display_popup_unAuth ? '100%' : '0'}}
+                        style={{opacity: display_popup_unAuth ? '1' : '0'}}
                         className={styles.popup_unAuth}>Вы не можете добавлять товар пока не зарегистрировались
                     </div>
 

@@ -20,7 +20,7 @@
   padding-left: 17px;
   font-size: 1em;
   font-weight: normal;
-
+  padding-right: 25px;
 
 }
 
@@ -32,7 +32,15 @@
   display: none;
 }
 
+.list_title::-webkit-details-marker {
+  display:none;
+}
+
 .details > summary {
+  list-style: none;
+}
+.details > summary::-webkit-details-marker {
+  display:none;
   list-style: none;
 }
 
@@ -44,7 +52,7 @@
   width: 10px;
   height: 10px;
   background: url("play.svg") 50% 50%/cover no-repeat;
-  opacity: 90%;
+  opacity: 0.9;
   transition: transform $animation_duration;
 }
 

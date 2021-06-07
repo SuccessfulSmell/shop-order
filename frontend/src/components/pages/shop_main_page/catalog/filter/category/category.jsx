@@ -20,13 +20,6 @@ function Category(props) {
                 <span className={styles.category_name}>Категории:</span>
                 {props.categories.groups.map((group, index) => (
                     <div className={styles.group_block}>
-                        {
-                            group.icon
-                                ? <img src={group.icon} alt=""/>
-                                : ''
-
-                        }
-
                         <details key={index} className={styles.group}>
                             <summary className={`${styles.list_titles}`}>{group.name}</summary>
                             {group.sub_category.map((category, index) =>
@@ -40,6 +33,12 @@ function Category(props) {
                             )
                             }
                         </details>
+                        {
+                            group.icon
+                                ? <img src={group.icon} alt=""/>
+                                : ''
+
+                        }
                     </div>
                 ))}
 

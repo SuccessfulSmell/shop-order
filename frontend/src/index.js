@@ -8,7 +8,6 @@ import {BrowserRouter} from "react-router-dom";
 import configureStore from "./redux/store";
 
 const store = configureStore()
-export const BACK_URL = 'http://localhost:8000'
 
 ReactDOM.render(
     <React.StrictMode>
