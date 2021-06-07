@@ -1,7 +1,8 @@
 import {search_products} from "../actions";
+import {BACK_URL} from "../../../BACK_URL";
 
 export const API_getProducts_search = (slug = '', page = '1', sort_by = '') => async (dispatch) => {
-    let url = `http://127.0.0.1:8000/api/products/get_products/?search=${slug}&page=${page}&sort=${sort_by}`
+    let url = BACK_URL + `/api/products/get_products/?search=${slug}&page=${page}&sort=${sort_by}`
     try {
         await fetch(url)
             .then(response => response.json())

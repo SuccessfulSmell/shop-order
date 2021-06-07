@@ -178,7 +178,7 @@
   content: '';
   width: 30%;
   height: 32px;
-  opacity: 100%;
+  opacity: 1;
   transform: rotate(30deg);
   top: 0;
   left: 5px;
@@ -191,7 +191,7 @@
   padding: 3px;
   background-color: red;
   color: white;
-  opacity: 80%;
+  opacity: 0.8;
   top: -30px;
   left: 0;
 }

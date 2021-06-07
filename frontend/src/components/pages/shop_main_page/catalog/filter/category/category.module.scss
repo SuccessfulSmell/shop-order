@@ -9,14 +9,21 @@
 }
 .list_titles{
   position: relative;
-  padding-left: 17px;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow-x: hidden;
   font-size: 1em;
   font-weight: normal;
-
-
+  list-style: none;
 }
+
+.list_titles::-webkit-details-marker {
+  display:none;
+}
+
 .list_titles::marker {
   display: none;
+  list-style-type: none;
 }
 
 
@@ -28,7 +35,7 @@
   width: 10px;
   height: 10px;
   background: url("./sub_category/play.svg") 50% 50%/cover no-repeat;
-  opacity: 90%;
+  opacity: 0.9;
   transition: transform $animation_duration;
 }
 
@@ -62,9 +69,12 @@
 
 .group_block {
   position: relative;
+  justify-content: space-between;
+  display: flex;
+
 
   img {
-    position: absolute;
+    position: relative;
     right: 10px;
     top: 20px;
     width: 24px;

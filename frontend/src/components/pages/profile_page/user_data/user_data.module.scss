@@ -28,7 +28,7 @@
   font-weight: 300;
   color: $main_color;
   padding: 0 10px 0 0;
-  opacity: 70%;
+  opacity: 0.7;
 
   transition: opacity $animation_duration;
 }
@@ -36,18 +36,18 @@
 .change:after {
   @include line_after($main_color);
   width: 0;
-  opacity: 30%;
+  opacity: 0.3;
   transition: width $animation_duration, opacity $animation_duration;
 }
 
 .change:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .change:hover:after {
   @include line_after($main_color);
   width: 100%;
-  opacity: 90%;
+  opacity: 0.9;
 }
 
 .all_page {

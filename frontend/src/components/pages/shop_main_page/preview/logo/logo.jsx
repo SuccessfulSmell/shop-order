@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './logo.module.scss'
 import img from './maintenance.svg'
+import {get_site_info} from "../../../../../redux/modules/categories/actions";
+import {connect} from "react-redux";
 
 function Logo(props) {
+    useEffect(() => {
+        props.get_site_info();
+    }, []);
     return (
         <div className={styles.logo}>
             <div className={styles.img}>
@@ -10,12 +15,30 @@ function Logo(props) {
                 <div className={styles.name}>T O O L S</div>
             </div>
 
-            <div className={styles.phones}>
-                <div>+375 (29) 999-99-11</div>
-                <div>+375 (29) 123-13-11</div>
-            </div>
+
+            {
+                props.info.length > 0
+                    ?
+                    <div className={styles.phones}>
+                        <div>{props.info[0].contact_phone}</div>
+                        <div>{props.info[0].logist_phone}</div>
+                    </div>
+                    : ''
+            }
         </div>
     );
 }
 
-export default Logo;
+const mapStateToProps = state =>
+{
+    return {
+        info: state.categories.info,
+    }
+}
+
+const mapDispatchToProps =
+{
+    get_site_info,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Logo);

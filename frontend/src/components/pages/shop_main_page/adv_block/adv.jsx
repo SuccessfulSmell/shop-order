@@ -14,14 +14,15 @@ function Adv(props) {
                 props.sales_list.length > 0
                     ?
                     <div className={styles.sales}>
-                        <div className={styles.sales_block}> </div>
-                        <div className={`container-md`}>
+                        <div className={styles.sales_block}>
+                        <div className={`container-md ${styles.cont}`}>
                             <div className={styles.title}>Только сейчас! Скидки на следующие категории:</div>
                             {
                                 props.sales_list.map((sale, index) => (
                                     <div className={styles.sale} key={index}>{sale.sub_category} - <span>{sale.discount}%</span></div>
                                 ))
                             }
+                        </div>
                         </div>
                     </div>
                     : ''

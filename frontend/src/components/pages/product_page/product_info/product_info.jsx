@@ -43,15 +43,15 @@ function ProductInfo(props) {
             <div className={styles.product_info}>
 
                 <div
-                    style={{opacity: display_popup_success ? '100%' : '0'}}
+                    style={{opacity: display_popup_success ? '1' : '0'}}
                     className={`${styles.popup_success} ${styles.warning_}`}>Товар был успешно добален
                 </div>
                 <div
-                    style={{opacity: display_popup_fail ? '100%' : '0'}}
+                    style={{opacity: display_popup_fail ? '1' : '0'}}
                     className={`${styles.popup_fail} ${styles.warning_}`}>Произошла ошибка!
                 </div>
                 <div
-                    style={{opacity: display_popup_unAuth ? '100%' : '0'}}
+                    style={{opacity: display_popup_unAuth ? '1' : '0'}}
                     className={`${styles.popup_unAuth} ${styles.warning_}`}>Вы не можете добавлять товар пока не
                     зарегистрировались
                 </div>
