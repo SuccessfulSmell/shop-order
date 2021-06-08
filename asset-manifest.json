@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8361427b.chunk.css",
+    "main.js": "/static/js/main.7410310b.chunk.js",
+    "main.js.map": "/static/js/main.7410310b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1661ba86.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1661ba86.js.map",
+    "static/css/2.2046fe51.chunk.css": "/static/css/2.2046fe51.chunk.css",
+    "static/js/2.57586fc9.chunk.js": "/static/js/2.57586fc9.chunk.js",
+    "static/js/2.57586fc9.chunk.js.map": "/static/js/2.57586fc9.chunk.js.map",
+    "static/js/3.a052103e.chunk.js": "/static/js/3.a052103e.chunk.js",
+    "static/js/3.a052103e.chunk.js.map": "/static/js/3.a052103e.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.2046fe51.chunk.css.map": "/static/css/2.2046fe51.chunk.css.map",
+    "static/css/main.8361427b.chunk.css.map": "/static/css/main.8361427b.chunk.css.map",
+    "static/js/2.57586fc9.chunk.js.LICENSE.txt": "/static/js/2.57586fc9.chunk.js.LICENSE.txt",
+    "static/media/404.7d3845b7.svg": "/static/media/404.7d3845b7.svg",
+    "static/media/500.df189597.svg": "/static/media/500.df189597.svg",
+    "static/media/cart.ec8a8851.png": "/static/media/cart.ec8a8851.png",
+    "static/media/sub_category.module.scss": "/static/media/discount.dde3146e.svg",
+    "static/media/empty_cart.aa0a4885.svg": "/static/media/empty_cart.aa0a4885.svg",
+    "static/media/empty_img.899271eb.svg": "/static/media/empty_img.899271eb.svg",
+    "static/media/product.module.scss": "/static/media/line.87450343.svg",
+    "static/media/loading.4dd8dc50.svg": "/static/media/loading.4dd8dc50.svg",
+    "static/media/login_2.90184c24.svg": "/static/media/login_2.90184c24.svg",
+    "static/media/login_3.cb4cac34.svg": "/static/media/login_3.cb4cac34.svg",
+    "static/media/maintenance.c14acc38.svg": "/static/media/maintenance.c14acc38.svg",
+    "static/media/noData.66fa4bc0.svg": "/static/media/noData.66fa4bc0.svg",
+    "static/media/category.module.scss": "/static/media/play.81bd006a.svg",
+    "static/media/profileNavs.module.scss": "/static/media/rec.78cc7d2a.png",
+    "static/media/search.module.scss": "/static/media/search.16be71f2.png",
+    "static/media/preview.module.scss": "/static/media/tools.3a0c8141.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1661ba86.js",
+    "static/css/2.2046fe51.chunk.css",
+    "static/js/2.57586fc9.chunk.js",
+    "static/css/main.8361427b.chunk.css",
+    "static/js/main.7410310b.chunk.js"
+  ]
+}
